@@ -1,0 +1,22 @@
+.flex-center-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .flex-center {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+  }
+  
+  .board_title {
+    font-size: 18px;
+    font-weight: 700;
+  }

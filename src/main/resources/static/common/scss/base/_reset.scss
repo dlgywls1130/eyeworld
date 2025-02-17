@@ -1,0 +1,30 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ul, li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+  }
+  
+  body {
+    line-height: $line-height-base;
+    font-family: $font-family-base;
+    color: $text-color;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul, ol {
+    list-style: none;
+  }
