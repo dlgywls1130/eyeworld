@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/teachers/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="subpage_contain">
+            <h2 class="page_title">선생님공간</h2>
+
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search">
+                <button class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path
+                            d="M11.7669 21.2554C16.7311 21.2554 20.7554 17.2311 20.7554 12.2669C20.7554 7.30263 16.7311 3.27832 11.7669 3.27832C6.80263 3.27832 2.77832 7.30263 2.77832 12.2669C2.77832 17.2311 6.80263 21.2554 11.7669 21.2554Z"
+                            stroke="#007BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18.0186 18.9854L21.5426 22.5002" stroke="#007BFF" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="extra-page__box">
+                <div class="page_tab">
+                    <ul class="tabs">
+                        <li class="tab-link current" data-tab="tt-1">나라별 학습 지도 배우기</li>
+                        <li class="tab-link" data-tab="tt-2">리더가 되는 기술 배우기</li>
+                        <li class="tab-link" data-tab="tt-3">명언 검색하기</li>
+                        <li class="tab-link" data-tab="tt-4">명사 책 독서하기</li>
+                        <li class="tab-link" data-tab="tt-5">모의 대통령 축사하기</li>
+                        <li class="tab-link" data-tab="tt-6">어린이 청소년 보호 법령 보기</li>
+                        <li class="tab-link" data-tab="tt-7">인문학 강의</li>
+                        <li class="tab-link" data-tab="tt-8">케이팝 공연 전체보기</li>
+                        <li class="tab-link" data-tab="tt-9">예절 강좌</li>
+                        <li class="tab-link" data-tab="tt-10">윤리 강좌</li>
+                        <li class="tab-link" data-tab="tt-11">민주시민의 예법 배우기</li>
+                        <li class="tab-link" data-tab="tt-12">도덕 강좌</li>
+                        <li class="tab-link" data-tab="tt-13">서예 강좌</li>
+                        <li class="tab-link" data-tab="tt-14">선생님 칼럼</li>
+                        <li class="tab-link" data-tab="tt-15">성공 명사 일촌 맺기</li>
+                        <li class="tab-link" data-tab="tt-16">전 세계 뉴스 보기</li>
+                        <li class="tab-link" data-tab="tt-17">교사들의 재능광장</li>
+                        <li class="tab-link" data-tab="tt-18">사제간에 지켜야되는 예법</li>
+                    </ul>
+
+                    <div class="extra-container">
+                        <div class="aside_ad">
+                            <ul class="content__list">
+                                <li class="content__item">
+                                    <div class="advertise_img">
+                                        <img th:src="@{/static/common/assets/advert/banner03.png}" alt="광고 이미지">
+                                    </div>
+                                </li>
+                                <li class="content__item">
+                                    <div class="advertise_img">
+                                        <img th:src="@{/static/common/assets/advert/banner05.png}" alt="광고 이미지">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab_container">
+                            <div id="tt-1" class="tab-content current">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-2" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-3" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-4" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-5" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-6" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-7" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-8" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-9" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-10" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-11" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-12" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-13" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-14" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-15" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="tt-16" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="tt-17" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="tt-18" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+                                            <h2 class="board_title">게시글 타이틀</h2>
+                                            <p class="date_span">3 days ago</p>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or
+                                                looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                        <div class="commnet_footer flex-center-between">
+                                            <div class="coment_header">
+                                                <div class="user_descript">
+                                                    <h5 class="user_name">Robert Fox / <span>Software Engineer</span></h5>
+                                                </div>
+                                            </div>
+                                            <div class="flex-center">
+                                                <div class="goods">
+                                                    <img th:src="@{/static/common/assets/images/good.png}" alt="좋아요">
+                                                    <p>14</p>
+                                                </div>
+                                                <div class="comment">
+                                                    <img th:src="@{/static/common/assets/images/comment.png}" alt="댓글">
+                                                    <p>15</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+                            
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+                            
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+</body>

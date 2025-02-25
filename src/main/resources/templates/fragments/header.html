@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    
+    <header th:fragment="header" class="header">
+        <div class="header__inner">
+            <div class="header__left">
+                <div class="nav-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" fill="none">
+                        <path d="M35.875 10.25H5.125" stroke="#1F1F1F" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M35.875 20.6196H5.125" stroke="#1F1F1F" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M35.875 30.8696H5.125" stroke="#1F1F1F" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <a th:href="@{/}" class="logo">
+                    <img th:src="@{/static/common/assets/images/img_main_logo.svg}" alt="logo">
+                </a>
+            </div>
+
+            <div class="right-content">
+                <div class="language-dropdown">
+                    <button class="language-select">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
+                            <g clip-path="url(#clip0_55_1897)">
+                                <path
+                                    d="M14.4375 11C14.4375 11.9105 14.3883 12.7883 14.3021 13.625H6.70195C6.61172 12.7883 6.5666 11.9105 6.5666 11C6.5666 10.0895 6.61582 9.21172 6.70195 8.375H14.3021C14.3924 9.21172 14.4375 10.0895 14.4375 11ZM15.6187 8.375H20.6678C20.8852 9.21582 21 10.0936 21 11C21 11.9064 20.8852 12.7842 20.6678 13.625H15.6187C15.7049 12.7801 15.75 11.9023 15.75 11C15.75 10.0977 15.7049 9.21992 15.6187 8.375ZM20.2371 7.0625H15.4506C15.0404 4.4416 14.2283 2.24727 13.1824 0.844531C16.3939 1.69355 19.0066 4.02324 20.233 7.0625H20.2371ZM14.1217 7.0625H6.87832C7.12852 5.56953 7.51406 4.24883 7.98574 3.17832C8.41641 2.21035 8.89629 1.50898 9.35977 1.06602C9.81914 0.63125 10.2006 0.5 10.5 0.5C10.7994 0.5 11.1809 0.63125 11.6402 1.06602C12.1037 1.50898 12.5836 2.21035 13.0143 3.17832C13.49 4.24473 13.8715 5.56543 14.1217 7.0625ZM5.54941 7.0625H0.762891C1.99336 4.02324 4.60195 1.69355 7.81758 0.844531C6.77168 2.24727 5.95957 4.4416 5.54941 7.0625ZM0.332227 8.375H5.38125C5.29512 9.21992 5.25 10.0977 5.25 11C5.25 11.9023 5.29512 12.7801 5.38125 13.625H0.332227C0.114844 12.7842 0 11.9064 0 11C0 10.0936 0.114844 9.21582 0.332227 8.375ZM7.98574 18.8176C7.50996 17.7512 7.12852 16.4305 6.87832 14.9375H14.1217C13.8715 16.4305 13.4859 17.7512 13.0143 18.8176C12.5836 19.7855 12.1037 20.4869 11.6402 20.9299C11.1809 21.3687 10.7994 21.5 10.5 21.5C10.2006 21.5 9.81914 21.3687 9.35977 20.934C8.89629 20.491 8.41641 19.7896 7.98574 18.8217V18.8176ZM5.54941 14.9375C5.95957 17.5584 6.77168 19.7527 7.81758 21.1555C4.60195 20.3064 1.99336 17.9768 0.762891 14.9375H5.54941ZM20.2371 14.9375C19.0066 17.9768 16.398 20.3064 13.1865 21.1555C14.2324 19.7527 15.0404 17.5584 15.4547 14.9375H20.2412H20.2371Z"
+                                    fill="#C8CACF" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_55_1897">
+                                    <rect width="21" height="21" fill="white" transform="translate(0 0.5)" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        <span class="selected-language">
+                            English
+                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <div class="language-options hidden">
+                        <a href="#" data-lang="Korean">한국어</a>
+                        <a href="#" data-lang="English">English</a>
+                        <a href="#" data-lang="中文">中文</a>
+                        <a href="#" data-lang="Español">Español</a>
+                        <a href="#" data-lang="Français">Français</a>
+                        <a href="#" data-lang="Deutsch">Deutsch</a>
+                        <a href="#" data-lang="日本語">日本語</a>
+                        <a href="#" data-lang="Русский">Русский</a>
+                    </div>
+                </div>
+
+                <!-- 로그인전 -->
+                <div class="auth-buttons" th:if="${session.user == null}">
+                    <button class="login-btn" th:onclick="|location.href='@{/auth/login}'|">Log In</button>
+                    <button class="signup-btn" th:onclick="|location.href='@{/auth/register}'|">Sign Up</button>
+                </div>
+
+                <!-- 로그인 후 -->
+                <div th:if="${session.user != null}">
+                    <div class="profile">
+                        <img th:src="@{/common/assets/images/avatar.png}" alt="avatar">
+                        <p th:text="${session.user.name}">홍길동</p>
+                    </div>
+                    <button type="button" class="non-btn logout">로그아웃</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="full-menu hidden">
+            <div class="full-menu__content">
+                <div class="menu-grid">
+                    <div class="menu-category">
+                        <ul>
+                            <li><a th:href="@{/advertisement}">광고공간</a></li>
+                            <li><a th:href="@{/teachers}">선생님공간</a></li>
+                            <li><a th:href="@{/students}">학생공간</a></li>
+                            <li><a th:href="@{/parents}">학부모공간</a></li>
+                            <li><a th:href="@{/communication}">소통공간</a></li>
+                            <li><a th:href="@{/knowledge}">지식공간</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-category">
+                        <ul>
+                            <li><a th:href="@{/webtoon}">웹툰공간</a></li>
+                            <li><a th:href="@{/kpop}">K-POP</a></li>
+                            <li><a th:href="@{/highschool}">고등부</a></li>
+                            <li><a th:href="@{/hobby}">취미/여행/오락공간</a></li>
+                            <li><a th:href="@{/club}">동아리</a></li>
+                            <li><a th:href="@{/health}">건강</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-category">
+                        <ul>
+                            <li><a th:href="@{/movie}">고튜브</a></li>
+                            <li><a th:href="@{/exchange}">물품교환시장</a></li>
+                            <li><a th:href="@{/market}">아이월마트</a></li>
+                            <li><a th:href="@{/personality}">나도위인</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-category">
+                        <ul>
+                            <li><a th:href="@{/more}">기타</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-menu">
+            <div class="mobile-menu__header">
+                <div class="auth-buttons" th:if="${session.user == null}">
+                    <button class="login-btn" th:onclick="|location.href='@{/auth/login}'|">Log In</button>
+                    <button class="signup-btn" th:onclick="|location.href='@{/auth/register}'|">Sign Up</button>
+                </div>
+                <button class="mobile-menu__close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mobile-menu__content">
+                <div class="menu-category">
+                    <ul>
+                        <li><a th:href="@{/advertisement}">광고공간</a></li>
+                        <li><a th:href="@{/teachers}">선생님공간</a></li>
+                        <li><a th:href="@{/students}">학생공간</a></li>
+                        <li><a th:href="@{/parents}">학부모공간</a></li>
+                        <li><a th:href="@{/communication}">소통공간</a></li>
+                        <li><a th:href="@{/knowledge}">지식공간</a></li>
+                    </ul>
+                    <ul>
+                        <li><a th:href="@{/webtoon}">웹툰공간</a></li>
+                        <li><a th:href="@{/kpop}">K-POP</a></li>
+                        <li><a th:href="@{/highschool}">고등부</a></li>
+                        <li><a th:href="@{/hobby}">취미/여행/오락공간</a></li>
+                        <li><a th:href="@{/club}">동아리</a></li>
+                        <li><a th:href="@{/health}">건강</a></li>
+                    </ul>
+                    <ul>
+                        <li><a th:href="@{/movie}">고튜브</a></li>
+                        <li><a th:href="@{/exchange}">물품교환시장</a></li>
+                        <li><a th:href="@{/market}">아이월마트</a></li>
+                        <li><a th:href="@{/personality}">나도위인</a></li>
+                        <li><a th:href="@{/more}">기타</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+</html>

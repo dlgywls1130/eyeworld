@@ -1,24 +1,16 @@
-// Colors
-$text-color: #170F49;
-$active-color: #007BFF;
-$light-gray: #7E939A;
-$primary-color: #0A84FF;
-$white: #FFFFFF;
-$black: #000000;
-$border-color: #E5E5E5;
+:root {
+    // Colors
+    --text-color: #170F49;
+    --active-color: #007BFF;
+    --light-gray: #7E939A;
+    --primary-color: #0A84FF;
+    --white: #FFFFFF;
+    --black: #000000;
+    --border-color: #E5E5E5;
 
-// Typography
-$font-family-base: 'Pretendard', sans-serif;
-$font-size-base: 16px;
-$line-height-base: 1.5;
-
-// Layout
-$header-height: 74px;
-$container-max-width: 1400px;
-$container-padding: 2rem;
-
-// Breakpoints
-$breakpoint-sm: 576px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 992px;
-$breakpoint-xl: 1200px;
+    // Typography
+    --font-family-base: 'Pretendard', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.5;
+    --transition-base: all 0.3s ease;
+}

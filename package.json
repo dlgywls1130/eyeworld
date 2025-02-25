@@ -1,0 +1,16 @@
+{
+  "name": "eyeworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scss": "sass src/main/resources/static/common/scss:src/main/resources/static/common/css --watch",
+    "build:scss": "sass src/main/resources/static/common/scss:src/main/resources/static/common/css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.85.0"
+  }
+}

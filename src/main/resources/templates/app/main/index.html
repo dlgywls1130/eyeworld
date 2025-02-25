@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+<body>
+    <th:block th:fragment="links">
+
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <!-- header -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="main__content">
+            <!-- 검색창 -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search">
+                <button class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path d="M11.7669 21.2554C16.7311 21.2554 20.7554 17.2311 20.7554 12.2669C20.7554 7.30263 16.7311 3.27832 11.7669 3.27832C6.80263 3.27832 2.77832 7.30263 2.77832 12.2669C2.77832 17.2311 6.80263 21.2554 11.7669 21.2554Z" stroke="#007BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18.0186 18.9854L21.5426 22.5002" stroke="#007BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- main menu -->
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <a th:href="@{/advertisement}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon01.png}" alt="광고공간">
+                        </div>
+                        <span>광고공간</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/students}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon02.png}" alt="학생공간">
+                        </div>
+                        <span>학생공간</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/teachers}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon04.png}" alt="선생님공간">
+                        </div>
+                        <span>선생님공간</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/parents}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon03.png}" alt="학부모공간">
+                        </div>
+                        <span>학부모공간</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/kpop}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon05.png}" alt="K-POP">
+                        </div>
+                        <span>K-POP</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/knowledge}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon06.png}" alt="지식공간">
+                        </div>
+                        <span>지식공간</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/communication}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon07.png}" alt="소통공간">
+                        </div>
+                        <span>소통공간</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/health}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon08.png}" alt="건강">
+                        </div>
+                        <span>건강</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/personality}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon010.png}" alt="나도위인">
+                        </div>
+                        <span>나도위인</span>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a th:href="@{/more}">
+                        <div class="icon-box">
+                            <img th:src="@{/static/common/assets/images/menuicon09.png}" alt="더보기">
+                        </div>
+                        <span>더보기</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- content -->
+            <div class="content__box">
+                <div class="content-inner">
+                    <!-- main 광고 배너 -->
+                    <div class="advertisement_banner">
+                        <img th:src="@{/static/common/assets/advert/banner01.png}" alt="광고 배너">
+                    </div>
+
+                    <!-- 뉴스 섹션 -->
+                    <div class="common_box news-box">
+                        <ul class="tabs">
+                            <li class="tab-link current" data-tab="news-tab-1">문화</li>
+                            <li class="tab-link" data-tab="news-tab-2">연예</li>
+                            <li class="tab-link" data-tab="news-tab-3">정치</li>
+                            <li class="tab-link" data-tab="news-tab-4">스포츠</li>
+                        </ul>
+
+                        <div id="news-tab-1" class="tab-content current">
+                            <div class="swiper cultureSwiper">
+                                <div class="swiper-wrapper">
+                                    <!-- 첫 번째 레이아웃 슬라이드 -->
+                                    <div class="swiper-slide">
+                                        <div class="ticker-container">
+                                            <div class="ticker">
+                                                <div class="ticker-items">
+                                                    <div class="ticker-list">
+                                                        <span class="news-source">엔터홈</span>
+                                                        <span class="news-tag">나의 완벽한 비서</span>
+                                                        <span class="news-title">[우산 엔딩] 이준혁, 갑작스러운 비에도 한지민 위해 준비된 캐릭터 우산★</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layout-grid">
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/008/2025/01/11/0005139762_001_20250111173814954.jpg?type=w860" alt="뉴스 이미지">
+                                                    
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">[내일 날씨] '영하 16도' 일요일도 전국 꽁꽁…제주·충남은 눈·비</h3>
+                                                    <div class="content-meta">
+                                                        <span>머니투데이</span>
+                                                        <span>오후 5:37</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/032/2025/01/11/0003344700_001_20250111090217130.jpg?type=w860" alt="뉴스 이미지">
+                                                    
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">숨만 쉬어도 미세플라스틱 들어온다…세계 최초 콧속에서 발견</h3>
+                                                    <div class="content-meta">
+                                                        <span>경향신문</span>
+                                                        <span>오전 9:02</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/009/2025/01/11/0005427378_001_20250111203214925.jpg?type=w860" alt="뉴스 이미지">
+                                                
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">살아 숨쉬는 듯한 병사들의 표정...그 안에서 작가의 삶도 숨쉰다 [퇴근 후 방구석 공방]</h3>
+                                                    <div class="content-meta">
+                                                        <span>메일경제</span>
+                                                        <span>오후 8:32</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/003/2025/01/11/NISI20250110_0001747968_web_20250110163308_20250111151717733.jpg?type=w860" alt="뉴스 이미지">
+                                                    
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">첫인상에서 호감을 사려면…'운명을 바꾸는 말하기 수업'</h3>
+                                                    <div class="content-meta">
+                                                        <span>뉴시스</span>
+                                                        <span>오후 오후 3:17</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- 두 번째 레이아웃 슬라이드 -->
+                                    <div class="swiper-slide">
+                                        <div class="ticker-container">
+                                            <div class="ticker">
+                                                <div class="ticker-items">
+                                                    <div class="ticker-list">
+                                                        <span class="news-source">엔터홈</span>
+                                                        <span class="news-tag">나의 완벽한 비서</span>
+                                                        <span class="news-title">[우산 엔딩] 이준혁, 갑작스러운 비에도 한지민 위해 준비된 캐릭터 우산★</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-layout">
+                                            <div class="list-layout-inner">
+                                                <div class="featured-news">
+                                                    <div class="featured-image">
+                                                        <img src="https://imgnews.pstatic.net/image/629/2025/01/12/202522871736440025_20250112000140096.jpg?type=w860" alt="뉴스 이미지">
+                                                    </div>
+                                                    <div class="featured-content">
+                                                        
+                                                        <h3 class="news-title">[인플루언서 프리즘] 모서리 청소부터 반려동물 돌봄까지…각양각색 로봇</h3>
+                                                        <div class="content-meta">
+                                                            <span>더팩트</span>
+                                                            <span>오전 12:01</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="featured-news">
+                                                    <div class="featured-image">
+                                                        <img src="https://imgnews.pstatic.net/image/003/2025/01/11/NISI20250111_0020658579_web_20250111184717_20250111222316857.jpg?type=w860" alt="뉴스 이미지">
+                                                    </div>
+                                                    <div class="featured-content">
+                                                        
+                                                        <h3 class="news-title">'관광객들로 인산인해' 화천 산천어축제 개막[뉴시스Pic]</h3>
+                                                        <div class="content-meta">
+                                                            <span>뉴시스</span>
+                                                            <span>오후 10:23</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="news-list">
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-title">[주말엔 운동] "뚱뚱해도 '이것'만 하면 장수할 수 있다"</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-title">요로감염 오진 후 결국 '이 암' 진단받은 30대女…증상 어땠길래?</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-title">부정적인 생각 잘 흘려보내려면… 밤사이 ‘이것’ 충분히 해야</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-title">‘이런 꿈’ 꾸는 것, 치매의 초기 징후일 수도</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+
+                                                        <span class="news-title">1주일에 딱 한 번… ‘이 운동’ 하면 심혈관질환·사망 위험 크게 준다</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-navigation">
+                                <button class="swiper-prev" aria-label="이전">
+                                    <img th:src="@{/static/common/assets/images/arrow.png}">
+                                </button>
+                                <span class="swiper-pagination"></span>
+                                <button class="swiper-next" aria-label="다음">
+                                    <img th:src="@{/static/common/assets/images/right.png}">
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 연예 탭 -->
+                        <div id="news-tab-2" class="tab-content">
+                            <div class="swiper entertainmentsSwiper">
+                                <div class="swiper-wrapper">
+                                    <!-- 첫 번째 레이아웃 슬라이드 -->
+                                    <div class="swiper-slide">
+                                        <div class="ticker-container">
+                                            <div class="ticker">
+                                                <div class="ticker-items">
+                                                    <div class="ticker-list">
+                                                        <span class="news-source">엔터홈</span>
+                                                        <span class="news-tag">나의 완벽한 비서</span>
+                                                        <span class="news-title">[우산 엔딩] 이준혁, 갑작스러운 비에도 한지민 위해 준비된 캐릭터 우산★</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layout-grid">
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img th:src="@{/static/common/assets/images/new01.PNG}" alt="뉴스 이미지">
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">배우 송해교로서 힘든 연기 억대도 보여하교 덜 클로...</h3>
+                                                    <div class="content-meta">
+                                                        <span>유 퀴즈 온 더 블럭</span>
+                                                        <span>23시간 전</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img th:src="@{/static/common/assets/images/new01.PNG}" alt="뉴스 이미지">
+                                                    
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">우리가 얼마 배우 송해교가 아니야, 털털하다 못해 또...</h3>
+                                                    <div class="content-meta">
+                                                        <span>유 퀴즈 온 더 블럭</span>
+                                                        <span>22시간 전</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img th:src="@{/static/common/assets/images/new01.PNG}" alt="뉴스 이미지">
+                                                
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">배우 송해교로서 힘든 연기 억대도 보여하교 덜 클로...</h3>
+                                                    <div class="content-meta">
+                                                        <span>유 퀴즈 온 더 블럭</span>
+                                                        <span>23시간 전</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img th:src="@{/static/common/assets/images/new01.PNG}" alt="뉴스 이미지">
+                                                    
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">우리가 얼마 배우 송해교가 아니야, 털털하다 못해 또...</h3>
+                                                    <div class="content-meta">
+                                                        <span>유 퀴즈 온 더 블럭</span>
+                                                        <span>22시간 전</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- 두 번째 레이아웃 슬라이드 -->
+                                    <div class="swiper-slide">
+                                        <div class="ticker-container">
+                                            <div class="ticker">
+                                                <div class="ticker-items">
+                                                    <div class="ticker-list">
+                                                        <span class="news-source">엔터홈</span>
+                                                        <span class="news-tag">나의 완벽한 비서</span>
+                                                        <span class="news-title">[우산 엔딩] 이준혁, 갑작스러운 비에도 한지민 위해 준비된 캐릭터 우산★</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-layout">
+                                            <div class="list-layout-inner">
+                                                <div class="featured-news">
+                                                    <div class="featured-image">
+                                                        <img src="https://imgnews.pstatic.net/image/421/2025/01/09/0008013945_001_20250109185511205.jpg?type=w647" alt="뉴스 이미지">
+                                                    </div>
+                                                    <div class="featured-content">
+                                                        
+                                                        <h3 class="news-title"><span class="news-tag">[단독]</span> 차은우, 고민시 맡냐 가...둥차메 실작 남주인공...</h3>
+                                                        <div class="content-meta">
+                                                            <span>뉴스1</span>
+                                                            <span>2시간 전</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="featured-news">
+                                                    <div class="featured-image">
+                                                        <img src="https://imgnews.pstatic.net/image/421/2025/01/09/0008013945_001_20250109185511205.jpg?type=w647" alt="뉴스 이미지">
+                                                    </div>
+                                                    <div class="featured-content">
+                                                        
+                                                        <h3 class="news-title"><span class="news-tag">[단독]</span> 차은우, 고민시 맡냐 가...둥차메 실작 남주인공...</h3>
+                                                        <div class="content-meta">
+                                                            <span>뉴스1</span>
+                                                            <span>2시간 전</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="news-list">
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag">[단독]</span>
+                                                        <span class="news-title">나인우, '군 면제' 논란 속사정 '연기 1순위'...</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag">[단독]</span>
+                                                        <span class="news-title">나인우, '군 면제' 논란 속사정 '연기 1순위'...</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag">[단독]</span>
+                                                        <span class="news-title">나인우, '군 면제' 논란 속사정 '연기 1순위'...</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag">[단독]</span>
+                                                        <span class="news-title">나인우, '군 면제' 논란 속사정 '연기 1순위'...</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag">[단독]</span>
+                                                        <span class="news-title">나인우, '군 면제' 논란 속사정 '연기 1순위'...</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-navigation">
+                                <button class="swiper-prev" aria-label="이전">
+                                    <img th:src="@{/static/common/assets/images/arrow.png}">
+                                </button>
+                                <span class="swiper-pagination"></span>
+                                <button class="swiper-next" aria-label="다음">
+                                    <img th:src="@{/static/common/assets/images/right.png}">
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 정치 탭 -->
+                        <div id="news-tab-3" class="tab-content">
+                            <div class="swiper politicsNewsSwiper">
+                                <div class="swiper-wrapper">
+                                    <!-- 첫 번째 슬라이드 -->
+                                    <div class="swiper-slide">
+                                        <!-- 뉴스 티커 섹션 -->
+                                        <div class="news-ticker-container">
+                                            <div class="news-ticker">
+                                                <div class="ticker-items">
+                                                    <div class="ticker-item">
+                                                        <span class="news-source">연합뉴스</span>
+                                                        <span class="news-tag">속보</span>
+                                                        <span class="news-title">"정치기사 2"</span>
+                                                        
+                                                    </div>
+                                                    <div class="ticker-item">
+                                                        <span class="news-source">연합뉴스</span>
+                                                        <span class="news-tag">속보</span>
+                                                        <span class="news-title">"정치 기사 1"</span>
+                                                        
+                                                    </div>
+                                                    <div class="ticker-item">
+                                                        <span class="news-source">연합뉴스</span>
+                                                        <span class="news-tag">속보</span>
+                                                        <span class="news-title">"정치 기사 3"</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- 4개의 뉴스 그리드 -->
+                                        <div class="layout-grid">
+                                            <a href="https://n.news.naver.com/article/656/0000117840" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/656/2025/01/11/0000117840_001_20250111094216906.jpg?type=w860" alt="뉴스 이미지">
+                                                </div>
+                                                <div class="news-content">
+                                                    <h3 class="content-title">"잠자는 백골공주"… 김민전, 국회에서 또 졸음 논란</h3>
+                                                    <div class="content-meta">
+                                                        <span>대전일보</span>
+                                                        <span>01월 11일 9:42 </span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/011/2025/01/11/0004438393_001_20250111043108666.png?type=w860" alt="뉴스 이미지">
+                                                </div>
+                                                <div class="news-content">
+                                                    <h3 class="content-title">"서 있기도 힘드네" 부산 101층 엘시티 '빌딩풍' 얼마나 세길래…나무도 죽었다</h3>
+                                                    <div class="content-meta">
+                                                        <span>서울경제</span>
+                                                        <span>01월 11일 4:31</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="https://n.news.naver.com/article/654/0000101006?sid=100" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/654/2025/01/10/0000101006_001_20250110182913697.jpg?type=w860" alt="뉴스 이미지">
+                                                </div>
+                                                <div class="news-content">
+                                                    <h3 class="content-title">강원대병원 응급의료센터 운영 정상화…김 지사 현장 점검 나서</h3>
+                                                    <div class="content-meta">
+                                                        <span>강원도민일보</span>
+                                                        <span>01월 11일 6:29</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="https://n.news.naver.com/article/654/0000101006?sid=100" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/654/2025/01/10/0000101006_001_20250110182913697.jpg?type=w860" alt="뉴스 이미지">
+                                                </div>
+                                                <div class="news-content">
+                                                    <h3 class="content-title">강원대병원 응급의료센터 운영 정상화…김 지사 현장 점검 나서</h3>
+                                                    <div class="content-meta">
+                                                        <span>강원도민일보</span>
+                                                        <span>01월 11일 6:29</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                        
+                                    <!-- 두 번째 슬라이드도 동일한 구조 -->
+                                    <div class="swiper-slide">
+                                        <div class="news-ticker-container">
+                                            <div class="news-ticker">
+                                                <div class="ticker-items">
+                                                    <div class="ticker-item">
+                                                        <span class="news-source">연합뉴스</span>
+                                                        <span class="news-tag">속보</span>
+                                                        <span class="news-title">"정치기사 2"</span>
+                                                        
+                                                    </div>
+                                                    <div class="ticker-item">
+                                                        <span class="news-source">연합뉴스</span>
+                                                        <span class="news-tag">속보</span>
+                                                        <span class="news-title">"정치 기사 1"</span>
+                                                        
+                                                    </div>
+                                                    <div class="ticker-item">
+                                                        <span class="news-source">연합뉴스</span>
+                                                        <span class="news-tag">속보</span>
+                                                        <span class="news-title">"정치 기사 3"</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        
+                                        <!-- 4개의 뉴스 그리드 -->
+                                        <div class="layout-grid">
+                                            <a href="https://n.news.naver.com/article/656/0000117840" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/656/2025/01/11/0000117840_001_20250111094216906.jpg?type=w860" alt="뉴스 이미지">
+                                                </div>
+                                                <div class="news-content">
+                                                    <h3 class="content-title">"잠자는 백골공주"… 김민전, 국회에서 또 졸음 논란</h3>
+                                                    <div class="content-meta">
+                                                        <span>대전일보</span>
+                                                        <span>01월 11일 9:42 </span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/011/2025/01/11/0004438393_001_20250111043108666.png?type=w860" alt="뉴스 이미지">
+                                                </div>
+                                                <div class="news-content">
+                                                    <h3 class="content-title">"서 있기도 힘드네" 부산 101층 엘시티 '빌딩풍' 얼마나 세길래…나무도 죽었다</h3>
+                                                    <div class="content-meta">
+                                                        <span>서울경제</span>
+                                                        <span>01월 11일 4:31</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="https://n.news.naver.com/article/654/0000101006?sid=100" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/654/2025/01/10/0000101006_001_20250110182913697.jpg?type=w860" alt="뉴스 이미지">
+                                                </div>
+                                                <div class="news-content">
+                                                    <h3 class="content-title">강원대병원 응급의료센터 운영 정상화…김 지사 현장 점검 나서</h3>
+                                                    <div class="content-meta">
+                                                        <span>강원도민일보</span>
+                                                        <span>01월 11일 6:29</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="https://n.news.naver.com/article/654/0000101006?sid=100" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/654/2025/01/10/0000101006_001_20250110182913697.jpg?type=w860" alt="뉴스 이미지">
+                                                </div>
+                                                <div class="news-content">
+                                                    <h3 class="content-title">강원대병원 응급의료센터 운영 정상화…김 지사 현장 점검 나서</h3>
+                                                    <div class="content-meta">
+                                                        <span>강원도민일보</span>
+                                                        <span>01월 11일 6:29</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-navigation">
+                                    <button class="swiper-prev" aria-label="이전">
+                                        <img th:src="@{/static/common/assets/images/arrow.png}">
+                                    </button>
+                                    <span class="swiper-pagination"></span>
+                                    <button class="swiper-next" aria-label="다음">
+                                        <img th:src="@{/static/common/assets/images/right.png}">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 스포츠 탭 -->
+                        <div id="news-tab-4" class="tab-content">
+                            <div class="swiper sportsSwiper">
+                                <div class="swiper-wrapper">
+                                    <!-- 첫 번째 레이아웃 슬라이드 -->
+                                    <div class="swiper-slide">
+                                        <div class="ticker-container">
+                                            <div class="ticker">
+                                                <div class="ticker-items">
+                                                    <div class="ticker-list">
+                                                        <span class="news-source">엔터홈</span>
+                                                        <span class="news-tag">나의 완벽한 비서</span>
+                                                        <span class="news-title">[우산 엔딩] 이준혁, 갑작스러운 비에도 한지민 위해 준비된 캐릭터 우산★</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="layout-grid">
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/076/2025/01/11/2025011101000728400105386_20250111230821303.jpg?type=w647" alt="뉴스 이미지">
+                                                    
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">이강인 미쳤다! "아모림 1호 영입+비니시우스급 선수"→'우상' 다비드 실바 후계자 가능성까지...맨유-맨시티 영입 레이스 참전</h3>
+                                                    <div class="content-meta">
+                                                        <span>스포츠조선</span>
+                                                        <span>11:08</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/139/2025/01/11/0002216893_001_20250111234207494.jpg?type=w647" alt="뉴스 이미지">
+                                                    
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">60G 출전에 그쳤지만...키움, '8년만에 3할 타율' 이용규 '연봉 2억원'으로 대우했다</h3>
+                                                    <div class="content-meta">
+                                                        <span>sport</span>
+                                                        <span>오후 11:42</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/001/2025/01/11/PYH2024022020570001300_P4_20250111225915980.jpg?type=w647" alt="뉴스 이미지">
+                                                
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">쇼트트랙 김길리, 동계체전 여자 1,500ｍ 우승</h3>
+                                                    <div class="content-meta">
+                                                        <span>연합뉴스</span>
+                                                        <span>23시간 전</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="sub-content">
+                                                <div class="content-image">
+                                                    <img src="https://imgnews.pstatic.net/image/425/2025/01/11/20250111204329096256cf2d78c681245156135_20250111204615172.png?type=w647" alt="뉴스 이미지">
+                                                    
+                                                </div>
+                                                <div class="content-info">
+                                                    <h3 class="content-title">KIA, 김도영과 연봉 조정 NO... 파격 대우로 새 시즌 준비</h3>
+                                                    <div class="content-meta">
+                                                        <span>유 퀴즈 온 더 블럭</span>
+                                                        <span>22시간 전</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- 두 번째 레이아웃 슬라이드 -->
+                                    <div class="swiper-slide">
+                                        <div class="ticker-container">
+                                            <div class="ticker">
+                                                <div class="ticker-items">
+                                                    <div class="ticker-list">
+                                                        <span class="news-source">스포츠홈</span>
+                                                        <span class="news-tag">나의 완벽한 비서</span>
+                                                        <span class="news-title">[우산 엔딩] 이준혁, 갑작스러운 비에도 한지민 위해 준비된 캐릭터 우산★</span>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-layout">
+                                            <div class="list-layout-inner">
+                                                <div class="featured-news">
+                                                    <div class="featured-image">
+                                                        <img src="https://imgnews.pstatic.net/image/144/2025/01/11/0001012065_001_20250111220009718.jpg?type=w647" alt="뉴스 이미지">
+                                                    </div>
+                                                    <div class="featured-content">
+                                                        
+                                                        <h3 class="news-title">GS·도공에 발목 잡힌 흥국…아본단자 감독, “호흡 면에서 세 발 후퇴”[스경x현장]</h3>
+                                                        <div class="content-meta">
+                                                            <span>스포츠경향</span>
+                                                            <span>오후 10:00
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="featured-news">
+                                                    <div class="featured-image">
+                                                        <img src="https://imgnews.pstatic.net/image/311/2025/01/11/0001815427_001_20250111223216466.jpg?type=w647" alt="뉴스 이미지">
+                                                    </div>
+                                                    <div class="featured-content">
+                                                        
+                                                        <h3 class="news-title">'이적생' 막심, 성공적 데뷔→삼성화재 2연패 탈출…OK저축은행은 5연패 수렁</h3>
+                                                        <div class="content-meta">
+                                                            <span>엑스포츠뉴스</span>
+                                                            <span>오후 10:32</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="news-list">
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag"></span>
+                                                        <span class="news-title">도로공사가 만들어낸 또 한 번의 기적.</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag"></span>
+                                                        <span class="news-title">신인 홍유순 19점 폭발, 신지현 '결정적 3점포'…신한은행, KB 꺾고 4위 도약</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">OSEN</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag"></span>
+                                                        <span class="news-title">'양민혁 데뷔' 돌발 변수로 미뤄지나…기온 영하로 '뚝'→잔디에 서리→"토트넘-탬워스 연기 위기"</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">엑포츠뉴스</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag"></span>
+                                                        <span class="news-title">이강인 미쳤다! "아모림 1호 영입+비니시우스급 선수"→'우상' 다비드 실바 후계자 가능성까지...맨유-맨시티 영입 레이스 참전</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">스포츠조선</span>
+                                                </a>
+                                                <a href="#" class="news-item">
+                                                    <div class="news-item-left">
+                                                        <span class="news-tag"></span>
+                                                        <span class="news-title">‘아’ 황희찬, ‘빅찬스미스+실점 빌미’ 아쉬웠던 ‘75분’···울버햄프턴, 2부 브리스톨 2-1 제압→FA컵 4라운드 진출[FA컵 리뷰]</span>
+                                                    </div>
+                                                    
+                                                    <span class="news-source">스포츠경향</span>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-navigation">
+                                <button class="swiper-prev" aria-label="이전">
+                                    <img th:src="@{/static/common/assets/images/arrow.png}">
+                                </button>
+                                <span class="swiper-pagination"></span>
+                                <button class="swiper-next" aria-label="다음">
+                                    <img th:src="@{/static/common/assets/images/right.png}">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 커뮤니티 섹션 -->
+                    <div class="common_box">
+                        <ul class="tabs">
+                            <li class="tab-link current" data-tab="tab-1">커뮤니티</li>
+                            <li class="tab-link" data-tab="tab-2">공부 Talk</li>
+                            <li class="tab-link" data-tab="tab-3">명언 저장소</li>
+                        </ul>
+                        
+                        <div id="tab-1" class="tab-content current">
+                            <ul class="tab_content_wrapper">
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_01.png}">
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>물물교환</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_02.png}">
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>물물교환</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_03.png}" >
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>물물교환</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_04.png}">
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>물물교환</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_05.png}" alt="광고 배너">
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>물물교환</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_06.png}" alt="광고 배너">
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>물물교환</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="tab-2" class="tab-content">
+                            <div class="talk__list">
+                                <a href="#" class="talk__items">
+                                    <div class="talk_header">
+                                        <h2 class="talk_header--left">
+                                            talk 게시글 제목
+                                        </h2>
+
+                                    </div>
+                                    <div class="talk_content">
+                                        게시글 내용이 두줄까지 나타나서 보여질 예정이며. 자유롭게 공부에 대한 내용을 하는 게시판입니다. 두줄 이후 부터는 생략이 되며 클릭시 해당 게시글로
+                                        이동됩니다
+                                    </div>
+                                    <div class="talk_footer">
+                                        <div class="talk_footer--left">
+                                            <p class="talk_header--date">2024.12.18</p>
+                                        </div>
+                                        <div class="talk_footer--right">
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/favorite.svg}">
+
+                                                <span>30</span>
+                                            </p>
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/visibility.svg}">
+                                                <span>30</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="talk__items">
+                                    <div class="talk_header">
+                                        <h2 class="talk_header--left">
+                                            talk 게시글 제목
+                                        </h2>
+
+                                    </div>
+                                    <div class="talk_content">
+                                        게시글 내용이 두줄까지 나타나서 보여질 예정이며. 자유롭게 공부에 대한 내용을 하는 게시판입니다. 두줄 이후 부터는 생략이 되며 클릭시 해당 게시글로
+                                        이동됩니다
+                                    </div>
+                                    <div class="talk_footer">
+                                        <div class="talk_footer--left">
+                                            <p class="talk_header--date">2024.12.18</p>
+                                        </div>
+                                        <div class="talk_footer--right">
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/favorite.svg}">
+
+                                                <span>30</span>
+                                            </p>
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/visibility.svg}">
+                                                <span>30</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="#" class="talk__items">
+                                    <div class="talk_header">
+                                        <h2 class="talk_header--left">
+                                            talk 게시글 제목
+                                        </h2>
+
+                                    </div>
+                                    <div class="talk_content">
+                                        게시글 내용이 두줄까지 나타나서 보여질 예정이며. 자유롭게 공부에 대한 내용을 하는 게시판입니다. 두줄 이후 부터는 생략이 되며 클릭시 해당 게시글로
+                                        이동됩니다
+                                    </div>
+                                    <div class="talk_footer">
+                                        <div class="talk_footer--left">
+                                            <p class="talk_header--date">2024.12.18</p>
+                                        </div>
+                                        <div class="talk_footer--right">
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/favorite.svg}">
+
+                                                <span>30</span>
+                                            </p>
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/visibility.svg}">
+                                                <span>30</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="tab-3" class="tab-content">
+                            <div class="phrase_list">
+                                <a href="#" class="phrase_items">
+                                    <h2>"고통 없이 얻는 것은 없다." - 벤자민 프랭클린</h2>
+                                    <p>모든 가치 있는 성취에는 어려움이 따른다는 것을 상기시킵니다.</p>
+                                </a>
+                                <a href="#" class="phrase_items">
+                                    <h2>명언 타이틀</h2>
+                                    <p>명성에는 이런 큰 단점도 있는 바, 바로 우리가 그것을 좇을 수록 다른 이들의 비위를 맞추는데 우리 인생을 경주해야한다는 것이다. 명성에는 이런 큰
+                                        단점도 있는 바, 바로 우리가 그것을 좇을 수록 다른 이들의 비위를 맞추는데 우리 인생을 경주해야한다는 것이다. 명성에는 이런 큰 단점도 있는 바,
+                                        바로 우리가 그것을 좇을 수록 다른 이들의 비위를 맞추는데 우리 인생을 경주해야한다는 것이다.</p>
+                                </a>
+                                <a href="#" class="phrase_items">
+                                    <h2>명언 타이틀</h2>
+                                    <p>명언 내용들 두줄까지 보여주고 그뒤에는 생략되는 글들 예시로 보여주기 입니다. 클릭시 해당 명언 게시판으로 이동</p>
+                                </a>
+                                <a href="#" class="phrase_items">
+                                    <h2>명언 타이틀</h2>
+                                    <p>명언 내용들 두줄까지 보여주고 그뒤에는 ... 클릭시 해당 명언 게시판으로 이동</p>
+                                </a>
+                                <a href="#" class="phrase_items">
+                                    <h2>명언 타이틀</h2>
+                                    <p>명언 내용들 두줄까지 보여주고 그뒤에는 ... 클릭시 해당 명언 게시판으로 이동</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 영상 -->
+                    <div class="common_box">
+                        <ul class="tabs">
+                            <li class="tab-link current" data-tab="tab-1">영상</li>
+                            <li class="tab-link" data-tab="tab-2">포토</li>
+                        </ul>
+                        
+                        <!-- 영상 탭 콘텐츠 -->
+                        <div id="tab-1" class="tab-content current">
+
+                            <div class="inner-tab__box">
+                            <!-- 내부 탭 -->
+                            <ul class="inner_tabs">
+                                <li class="inner-tab-link current" data-inner-tab="inner-tab-1">막춤영상</li>
+                                <li class="inner-tab-link" data-inner-tab="inner-tab-2">토크영상</li>
+                                <li class="inner-tab-link" data-inner-tab="inner-tab-3">추억의 라이브</li>
+                            </ul>
+                            
+                            <div class="inner_tab_wrap">
+                                <!-- 내부 탭 콘텐츠 -->
+                                <div id="inner-tab-1" class="inner-tab-content current">
+                                    <!-- 막춤영상 콘텐츠 -->
+                                    <ul class="tab_content_wrapper">
+                                        <li>
+                                            <a href="#">
+                                                <div class="tab_content_img">
+                                                    <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                                </div>
+                                                <div class="tab_content_text">
+                                                    <h2>타이틀</h2>
+                                                    <p>조회 NN회</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="tab_content_img">
+                                                    <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                                </div>
+                                                <div class="tab_content_text">
+                                                    <h2>타이틀</h2>
+                                                    <p>조회 NN회</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="tab_content_img">
+                                                    <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                                </div>
+                                                <div class="tab_content_text">
+                                                    <h2>타이틀</h2>
+                                                    <p>조회 NN회</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="inner-tab-2" class="inner-tab-content">
+                                    <!-- 토크영상 콘텐츠 -->
+                                    <ul class="tab_content_wrapper">
+                                        <li>
+                                            <a href="#">
+                                                <div class="tab_content_img">
+                                                    <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                                </div>
+                                                <div class="tab_content_text">
+                                                    <h2>타이틀</h2>
+                                                    <p>조회 NN회</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="tab_content_img">
+                                                    <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                                </div>
+                                                <div class="tab_content_text">
+                                                    <h2>타이틀</h2>
+                                                    <p>조회 NN회</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="tab_content_img">
+                                                    <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                                </div>
+                                                <div class="tab_content_text">
+                                                    <h2>타이틀</h2>
+                                                    <p>조회 NN회</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="inner-tab-3" class="inner-tab-content">
+                                    <!-- 추억의 라이브 콘텐츠 -->
+                                    <ul class="tab_content_wrapper">
+                                        <li>
+                                            <a href="#">
+                                                <div class="tab_content_img">
+                                                    <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                                </div>
+                                                <div class="tab_content_text">
+                                                    <h2>타이틀</h2>
+                                                    <p>조회 NN회</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="tab_content_img">
+                                                    <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                                </div>
+                                                <div class="tab_content_text">
+                                                    <h2>타이틀</h2>
+                                                    <p>조회 NN회</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="tab_content_img">
+                                                    <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                                </div>
+                                                <div class="tab_content_text">
+                                                    <h2>타이틀</h2>
+                                                    <p>조회 NN회</p>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
+
+                            
+                        </div>
+                        
+                        <!-- 포토 탭 콘텐츠 -->
+                        <div id="tab-2" class="tab-content">
+                            <!-- 포토 콘텐츠 -->
+                            <ul class="tab_content_wrapper">
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                        </div>
+                                        <div class="tab_content_text photo-title">
+                                            <h2>타이틀</h2>
+                                            <p>조회 NN회</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                        </div>
+                                        <div class="tab_content_text photo-title">
+                                            <h2>타이틀</h2>
+                                            <p>조회 NN회</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_video_thumbnail.png}">
+                                        </div>
+                                        <div class="tab_content_text photo-title">
+                                            <h2>타이틀</h2>
+                                            <p>조회 NN회</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    
+                    <!-- 중간배너 -->
+                    <div class="middle_banner">
+                        <img th:src="@{/static/common/assets/advert/banner02.png}" alt="중간 배너">
+                    </div>
+
+
+                    <!-- 공개친구 사귀기/공부매니저되기/고민바구니/공유지식 -->
+                    <div class="common_box">
+                        <ul class="tabs">
+                            <li class="tab-link current" data-tab="tab-4">공개 친구 사귀기</li>
+                            <li class="tab-link" data-tab="tab-5">공부 매니저 되기</li>
+                            <li class="tab-link" data-tab="tab-6">고민바구니</li>
+                            <li class="tab-link" data-tab="tab-7">공유지식</li>
+                        </ul>
+
+                        <div id="tab-4" class="tab-content current">
+                            <div class="friends__list pc-block">
+                                <div class="friends__items">
+                                    <div class="friends__img">
+                                        <img th:src="@{/static/common/assets/images/img_people_01.png}">
+                                    </div>
+                                    <div class="friends__contents">
+                                        <div class="contents_header">
+                                            <div class="contents_header_left">
+                                                <h4>홍길동</h4>
+                                                <p class="sub-descript">#음악 #영화</p>
+                                            </div>
+                                            <button type="button" class="btn submit-btn">친구신청</button>
+                                        </div>
+                                        <p class="description">
+                                            안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는
+                                            음악과 영화를 좋아하는 16살 학생입니다.
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="friends__items">
+                                    <div class="friends__img">
+                                        <img th:src="@{/static/common/assets/images/img_people_01.png}">
+                                    </div>
+                                    <div class="friends__contents">
+                                        <div class="contents_header">
+                                            <div class="contents_header_left">
+                                                <h4>홍길동</h4>
+                                                <p class="sub-descript">#음악 #영화</p>
+                                            </div>
+                                            <button type="button" class="btn submit-btn">친구신청</button>
+                                        </div>
+                                        <p class="description">
+                                            안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는
+                                            음악과 영화를 좋아하는 16살 학생입니다.
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="friends__items">
+                                    <div class="friends__img">
+                                        <img th:src="@{/static/common/assets/images/img_people_01.png}">
+                                    </div>
+                                    <div class="friends__contents">
+                                        <div class="contents_header">
+                                            <div class="contents_header_left">
+                                                <h4>홍길동</h4>
+                                                <p class="sub-descript">#음악 #영화</p>
+                                            </div>
+                                            <button type="button" class="btn submit-btn">친구신청</button>
+                                        </div>
+                                        <p class="description">
+                                            안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는
+                                            음악과 영화를 좋아하는 16살 학생입니다.
+                                        </p>
+
+                                    </div>
+                                </div>
+                                <div class="friends__items">
+                                    <div class="friends__img">
+                                        <img th:src="@{/static/common/assets/images/img_people_01.png}">
+                                    </div>
+                                    <div class="friends__contents">
+                                        <div class="contents_header">
+                                            <div class="contents_header_left">
+                                                <h4>홍길동</h4>
+                                                <p class="sub-descript">#음악 #영화</p>
+                                            </div>
+                                            <button type="button" class="btn submit-btn">친구신청</button>
+                                        </div>
+                                        <p class="description">
+                                            안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는
+                                            음악과 영화를 좋아하는 16살 학생입니다.
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="friends__list mo-block">
+                                <div class="friends__items">
+
+                                    <div class="friends__contents">
+                                        <div class="friends__img">
+                                            <img th:src="@{/static/common/assets/images/img_people_01.png}">
+                                        </div>
+                                        <div class="contents_header">
+                                            <div class="contents_header_left">
+                                                <h4>홍길동</h4>
+                                                <p class="sub-descript">#음악 #영화</p>
+                                            </div>
+                                            <p class="description">
+                                                안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는
+                                                음악과 영화를 좋아하는 16살 학생입니다.
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                    <button type="button" class="btn submit-btn">친구신청</button>
+                                </div>
+                                <div class="friends__items">
+
+                                    <div class="friends__contents">
+                                        <div class="friends__img">
+                                            <img th:src="@{/static/common/assets/images/img_people_01.png}">
+                                        </div>
+                                        <div class="contents_header">
+                                            <div class="contents_header_left">
+                                                <h4>홍길동</h4>
+                                                <p class="sub-descript">#음악 #영화</p>
+                                            </div>
+                                            <p class="description">
+                                                안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는 음악과 영화를 좋아하는 16살 학생입니다. 안녕하세요! 저는
+                                                음악과 영화를 좋아하는 16살 학생입니다.
+                                            </p>
+                                        </div>
+
+
+                                    </div>
+                                    <button type="button" class="btn submit-btn">친구신청</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-5" class="tab-content">
+                            <ul class="study_content_wrapper">
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_people_01.png}">
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>효율적인 시간 관리</h2>
+                                            <p>공부의 시간을 효율적으로 관리하는 것은 성공적인 학습의 핵심입니다. 우선숭위 설정, 집중력 향상 기법, 그리고 적절한 휴식 시간 배분 등을
+                                                통해 학습 효율을 극대화할 수 있습니다.</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_people_01.png}">
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>효율적인 시간 관리</h2>
+                                            <p>공부의 시간을 효율적으로 관리하는 것은 성공적인 학습의 핵심입니다. 우선숭위 설정, 집중력 향상 기법, 그리고 적절한 휴식 시간 배분 등을
+                                                통해 학습 효율을 극대화할 수 있습니다.</p>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div id="tab-6" class="tab-content">
+                            <div class="talk__list">
+                                <a href="#" class="talk__items">
+                                    <div class="talk_header">
+                                        <h2 class="talk_header--left">
+                                            <span>[카테고리]</span>talk 게시글 제목
+                                        </h2>
+                                        <div class="talk_footer--right">
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/favorite.svg}">
+                                                <span>30</span>
+                                            </p>
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/visibility.svg}">
+                                                <span>30</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="talk_content">
+                                        게시글 내용이 두줄까지 나타나서 보여질 예정이며. 자유롭게 공부에 대한 내용을 하는 게시판입니다. 두줄 이후 부터는 생략이 되며 클릭시 해당 게시글로
+                                        이동됩니다
+                                    </div>
+                                </a>
+                                <a href="#" class="talk__items">
+                                    <div class="talk_header">
+                                        <h2 class="talk_header--left">
+                                            <span>[카테고리]</span>talk 게시글 제목
+                                        </h2>
+                                        <div class="talk_footer--right">
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/favorite.svg}">
+                                                <span>30</span>
+                                            </p>
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/visibility.svg}">
+                                                <span>30</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="talk_content">
+                                        게시글 내용이 두줄까지 나타나서 보여질 예정이며. 자유롭게 공부에 대한 내용을 하는 게시판입니다. 두줄 이후 부터는 생략이 되며 클릭시 해당 게시글로
+                                        이동됩니다
+                                    </div>
+
+                                </a>
+                                <a href="#" class="talk__items">
+                                    <div class="talk_header">
+                                        <h2 class="talk_header--left">
+                                            <span>[카테고리]</span>talk 게시글 제목
+                                        </h2>
+                                        <div class="talk_footer--right">
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/favorite.svg}">
+                                                <span>30</span>
+                                            </p>
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/visibility.svg}">
+                                                <span>30</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="talk_content">
+                                        게시글 내용이 두줄까지 나타나서 보여질 예정이며. 자유롭게 공부에 대한 내용을 하는 게시판입니다. 두줄 이후 부터는 생략이 되며 클릭시 해당 게시글로
+                                        이동됩니다
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="tab-7" class="tab-content">
+                            <div class="talk__list">
+                                <a href="#" class="talk__items">
+                                    <div class="talk_header">
+                                        <h2 class="talk_header--left">
+                                            <span>[카테고리]</span>talk 게시글 제목
+                                        </h2>
+                                        <div class="talk_footer--right">
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/favorite.svg}">
+                                                <span>30</span>
+                                            </p>
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/visibility.svg}">
+                                                <span>30</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="talk_content">
+                                        게시글 내용이 두줄까지 나타나서 보여질 예정이며. 자유롭게 공부에 대한 내용을 하는 게시판입니다. 두줄 이후 부터는 생략이 되며 클릭시 해당 게시글로
+                                        이동됩니다
+                                    </div>
+                                </a>
+                                <a href="#" class="talk__items">
+                                    <div class="talk_header">
+                                        <h2 class="talk_header--left">
+                                            <span>[카테고리]</span>talk 게시글 제목
+                                        </h2>
+                                        <div class="talk_footer--right">
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/favorite.svg}">
+                                                <span>30</span>
+                                            </p>
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/visibility.svg}">
+                                                <span>30</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="talk_content">
+                                        게시글 내용이 두줄까지 나타나서 보여질 예정이며. 자유롭게 공부에 대한 내용을 하는 게시판입니다. 두줄 이후 부터는 생략이 되며 클릭시 해당 게시글로
+                                        이동됩니다
+                                    </div>
+
+                                </a>
+                                <a href="#" class="talk__items">
+                                    <div class="talk_header">
+                                        <h2 class="talk_header--left">
+                                            <span>[카테고리]</span>talk 게시글 제목
+                                        </h2>
+                                        <div class="talk_footer--right">
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/favorite.svg}">
+                                                <span>30</span>
+                                            </p>
+                                            <p class="talk_btn">
+                                                <img th:src="@{/static/common/assets/images/visibility.svg}">
+                                                <span>30</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="talk_content">
+                                        게시글 내용이 두줄까지 나타나서 보여질 예정이며. 자유롭게 공부에 대한 내용을 하는 게시판입니다. 두줄 이후 부터는 생략이 되며 클릭시 해당 게시글로
+                                        이동됩니다
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 재능으로 돈벌기/시인의방 -->
+                    <div class="common_box">
+                        <ul class="tabs">
+                            <li class="tab-link current" data-tab="tab-8">재능으로 돈벌기</li>
+                            <li class="tab-link" data-tab="tab-9">시인의방</li>
+                        </ul>
+
+                        <div id="tab-8" class="tab-content current">
+                            <ul class="tab_content_wrapper">
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_01.png}" >
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>타이틀01</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_02.png}" >
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>타이틀01</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_03.png}" >
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>타이틀01</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_04.png}" >
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>타이틀01</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_05.png}" >
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>물물교환</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="tab_content_img">
+                                            <img th:src="@{/static/common/assets/images/img_community_06.png}" >
+                                        </div>
+                                        <div class="tab_content_text">
+                                            <h2>물물교환</h2>
+                                            <p>상품이나 서비스 교환하기</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="tab-9" class="tab-content">
+                            <div class="phrase_list">
+
+                                <a href="#" class="phrase_items">
+                                    <h2>시 타이틀</h2>
+                                    <p>시 내용들 두줄까지 보여주고 그뒤에는 생략되는 글들 예시로 보여주기 입니다. 클릭시 해당 명언 게시판으로 이동</p>
+                                </a>
+                                <a href="#" class="phrase_items">
+                                    <h2>시 타이틀</h2>
+                                    <p>시 내용들 두줄까지 보여주고 그뒤에는 생략되는 글들 예시로 보여주기 입니다. 클릭시 해당 명언 게시판으로 이동</p>
+                                </a>
+                                <a href="#" class="phrase_items">
+                                    <h2>시 타이틀</h2>
+                                    <p>시 내용들 두줄까지 보여주고 그뒤에는 ... 클릭시 해당 명언 게시판으로 이동</p>
+                                </a>
+                                <a href="#" class="phrase_items">
+                                    <h2>시 타이틀</h2>
+                                    <p>시 내용들 두줄까지 보여주고 그뒤에는 ... 클릭시 해당 명언 게시판으로 이동</p>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="bottom_banner">
+                        <img th:src="@{/static/common/assets/advert/img_footer_banner.png}" alt="하단 배너">
+                    </div>
+                </div>
+
+                <div class="aside_right">
+                    <div class="login_box">
+                        <div class="aside_logo">
+                            <img th:src="@{/static/common/assets/images/login_logo.png}" alt="로그인 로고">
+                        </div>
+                        <p>로그인 후 다양한 서비스를 이용해 보세요.</p>
+                        <div class="button_wrapper">
+                            <a th:href="@{/auth/login}" class="link_btn btn button__blueWhite">
+                                Eyworld 로그인
+                            </a>
+                            <a th:href="@{/auth/register}" class="link_btn btn button__whteBule-line">
+                                Eyworld 회원가입
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="small_banner">
+                        <img th:src="@{/static/common/assets/advert/banner03.png}" alt="작은 배너">
+                    </div>
+
+                    <!-- 날씨 위젯 -->
+                    <div class="weather-widget">
+                        <div class="location">Loading location...</div>
+                        <div class="date"></div>
+                        <div class="weather-main">
+                            <div class="weather-icon">
+                                <!-- Weather icon will be inserted here -->
+                            </div>
+                            
+                            <div class="temperature">
+                                <div class="current-temp">--°</div>
+                                <div class="temp-info">
+                                    <div class="weather-description">Loading weather...</div>
+                                    <div class="temp-range">Max.: --° Min.: --°</div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="weather-stats">
+                            <div class="stat">
+                                <svg class="stat-icon" viewBox="0 0 24 24">
+                                    <path d="M12,21A7,7,0,0,1,5,14c0-3.86,7-14,7-14s7,10.14,7,14A7,7,0,0,1,12,21Z"/>
+                                </svg>
+                                <span class="precipitation">--%</span>
+                            </div>
+                            <div class="stat">
+                                <div class="humidity-bar"></div>
+                                <span class="humidity">--%</span>
+                            </div>
+                            <div class="stat">
+                                <svg class="stat-icon" viewBox="0 0 24 24">
+                                    <path d="M3,12H15A3,3,0,0,0,18,9a3,3,0,0,0-3-3H14"/>
+                                    <path d="M3,8H17a3,3,0,0,1,3,3,3,3,0,0,1-3,3H3"/>
+                                    <path d="M3,16H15"/>
+                                </svg>
+                                <span class="wind-speed">-- km/h</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 캘린더 -->
+                    <div class="calendar-widget">
+                        <div class="calendar-header">
+                            <button class="nav-button prev-month">&lt;</button>
+                            <div class="month-year"></div>
+                            <button class="nav-button next-month">&gt;</button>
+                        </div>
+                        <div class="calendar-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+
+    <!-- js -->
+    <script th:if="${@environment.getProperty('spring.devtools.livereload.enabled')}" src="http://localhost:35729/livereload.js"></script>
+    <script th:src="@{/static/app/advertisement/js/index.js}"></script>
+</body>
+</html>
