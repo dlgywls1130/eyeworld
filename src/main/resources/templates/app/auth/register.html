@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/auth/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="signup_wrapper">
+            <h1 class="logo-text">회원가입</h1>
+
+            <form id="signupForm" class="signup-container">
+                <!-- 첫 번째 구간: 기본 정보 -->
+                <section class="signup-section">
+                    <h2>기본 정보</h2>
+                    <div class="field_container">
+                        <label class="input-label">성명 <span>*</span></label>
+                        <input type="text" class="input-field required" id="name" name="name" placeholder="이름을 입력해주세요">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">아이디 <span>*</span></label>
+                        <input type="text" class="input-field required" id="userId" name="userId"
+                            placeholder="아이디를 입력해주세요">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">비밀번호 <span>*</span></label>
+                        <div class="password-wrapper">
+                            <input type="password" class="input-field required" id="password" name="password"
+                                placeholder="비밀번호를 입력해주세요">
+                            <img th:src="@{/static/common/assets/icon/visibility.svg}" alt="toggle password visibility"
+                            class="visibility-toggle" id="togglePassword">
+                        </div>
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">비밀번호 확인 <span>*</span></label>
+                        <div class="password-wrapper">
+                            <input type="password" class="input-field required" id="passwordConfirm"
+                                name="passwordConfirm" placeholder="비밀번호를 한 번더 입력해주세요">
+                            <img th:src="@{/static/common/assets/icon/visibility.svg}" alt="toggle password visibility"
+                            class="visibility-toggle" id="togglePasswordConfirm">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 두 번째 구간: 추가 정보 -->
+                <section class="signup-section">
+                    <h2>추가 정보</h2>
+                    <div class="field_container">
+                        <label class="input-label">닉네임 <span>*</span></label>
+                        <input type="text" class="input-field required" id="nickname" name="nickname"
+                            placeholder="닉네임을 입력해주세요">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">휴대전화 <span class="required">*</span></label>
+                        <div class="phone-input-group">
+                            <input type="text" class="input-field phone-input" id="phone1" name="phone1" maxlength="3"
+                                placeholder="010">
+                            <span class="phone-separator">-</span>
+                            <input type="text" class="input-field phone-input" id="phone2" name="phone2" maxlength="4"
+                                placeholder="0000">
+                            <span class="phone-separator">-</span>
+                            <input type="text" class="input-field phone-input" id="phone3" name="phone3" maxlength="4"
+                                placeholder="0000">
+                            <input type="hidden" id="phone" name="phone">
+                        </div>
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">이메일 주소 <span class="required">*</span></label>
+                        <div class="email-input-group">
+
+                            <div class="email-input-group-input">
+                                <input type="text" class="input-field email-id" id="emailId" name="emailId"
+                                    placeholder="이메일">
+                                <span class="email-separator">@</span>
+                                <input type="text" class="input-field email-domain" id="emailDomain" name="emailDomain"
+                                    placeholder="직접입력">
+                            </div>
+
+                            <select class="input-field email-select" id="emailSelect">
+                                <option value="">직접입력</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="hanmail.net">hanmail.net</option>
+                                <option value="google.com">google.com</option>
+                            </select>
+                            <input type="hidden" id="email" name="email">
+                        </div>
+                    </div>
+
+
+                    <div class="field_container">
+                        <label class="input-label">학교</label>
+                        <input type="text" class="input-field" id="school" name="school">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">학년</label>
+                        <input type="text" class="input-field" id="grade" name="grade">
+                    </div>
+
+
+
+
+                    <div class="field_container">
+                        <label class="input-label">취미</label>
+                        <input type="text" class="input-field" id="hobby" name="hobby">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">특기</label>
+                        <input type="text" class="input-field" id="specialty" name="specialty">
+                    </div>
+
+                    <div class="field_container">
+                        <label class="input-label">종교</label>
+                        <input type="text" class="input-field" id="religion" name="religion">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">혈액형</label>
+                        <input type="text" class="input-field" id="bloodType" name="bloodType">
+                    </div>
+                </section>
+
+                <!-- 세 번째 구간: SNS 정보 -->
+                <section class="signup-section">
+                    <h2>SNS 정보</h2>
+                    <div class="field_container">
+                        <label class="input-label">페이스북</label>
+                        <input type="url" class="input-field" id="facebook" name="facebook">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">인스타그램</label>
+                        <input type="url" class="input-field" id="instagram" name="instagram">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">틱톡</label>
+                        <input type="url" class="input-field" id="tiktok" name="tiktok">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">블로그</label>
+                        <input type="url" class="input-field" id="blog" name="blog">
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">카페</label>
+                        <input type="url" class="input-field" id="cafe" name="cafe">
+                    </div>
+                </section>
+
+                <!-- 네 번째 구간: 프로필 정보 -->
+                <section class="signup-section">
+                    <h2>프로필 정보</h2>
+                    <div class="field_container">
+                        <label class="input-label">프로필 사진</label>
+                        <div class="profile-upload">
+                            <div class="profile-upload-wrapper">
+                                <div class="profile-preview">
+                                    <img th:src="@{/static/common/assets/icon/image.svg}" alt="upload img" id="previewImage">
+                                    <span>upload img</span>
+                                </div>
+                                <textarea class="profile-message" placeholder="상태메세지를 작성해주세요."></textarea>
+                            </div>
+                            <p class="upload-notice">사용하실 프로필사진(1:1비율)을 등록하세요.</p>
+                            <p class="upload-notice">(파일형식: jpg, jpeg, gif, png 파일만 가능, 제한크기: 최대 5MB)</p>
+                            <input type="file" class="profile-input-hidden" id="profileImage" name="profileImage"
+                                accept=".jpg,.jpeg,.gif,.png">
+                        </div>
+
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">상태 메시지</label>
+                        <textarea class="input-field" id="statusMessage" name="statusMessage"></textarea>
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">성별</label>
+                        <div class="radio-group">
+                            <label for="term-1" class="radio-button">남성
+                                <input type="radio" id="term-1" name="terms" checked="checked">
+                                <span class="custom-radio"></span>
+                            </label>
+                            <label for="term-2" class="radio-button">여성
+                                <input type="radio" id="term-2" name="terms">
+                                <span class="custom-radio"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="field_container">
+                        <label class="input-label">생년월일</label>
+                        <input type="date" class="input-field" id="birthdate" name="birthdate">
+                    </div>
+                </section>
+
+                <button type="submit" class="sign-in-btn">가입하기</button>
+            </form>
+        </div>
+
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+        <script th:src="@{/static/app/auth/js/register.js}"></script>
+    </div>
+
+
+
+</body>
+
+</html>

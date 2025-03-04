@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/auth/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="login_wrapper">
+            <div class="contain_logo">
+                <img th:src="@{/static/common/assets/images/bi.png}" alt="logo">
+            </div>
+            <div class="login-container">
+                <form id="loginForm" th:action="@{/login}" method="post">
+                    <div class="field_container">
+                        <div class="input-label">ID</div>
+                        <input type="text" class="input-field" name="userId" required placeholder="아이디를 입력하세요">
+                    </div>
+                    <div class="field_container">
+                        <div class="input-label">비밀번호</div>
+                        <div class="password-wrapper">
+                            <input type="password" class="input-field" name="password" required
+                                placeholder="비밀번호를 입력하세요">
+                            <img th:src="@{/static/common/assets/icon/visibility.svg}" alt="toggle password visibility"
+                                class="visibility-toggle" id="togglePassword">
+                        </div>
+                    </div>
+        
+                    <div class="forgot-password">
+                        <a th:href="@{/forgot-password}">Forgot Password?</a>
+                    </div>
+        
+                    <button type="submit" class="sign-in-btn">Sign In</button>
+                </form>
+        
+                <div class="signup-text">
+                    Don't have an account? <a th:href="@{/register}">Signup Now</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+        <script th:src="@{/static/app/auth/js/login.js}"></script>
+    </div>
+
+
+
+</body>
+</html>

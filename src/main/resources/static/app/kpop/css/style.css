@@ -1,1 +1,344 @@
-/*# sourceMappingURL=style.css.map */
+@charset "UTF-8";
+:root {
+  --text-color: #170F49;
+  --active-color: #007BFF;
+  --light-gray: #7E939A;
+  --primary-color: #0A84FF;
+  --white: #FFFFFF;
+  --black: #000000;
+  --border-color: #E5E5E5;
+  --font-family-base: "Pretendard", sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+  --transition-base: all 0.3s ease;
+}
+
+.kpop__box {
+  padding-bottom: 100px;
+}
+
+/* Custom Dropdown Styles */
+.sort-dropdown {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.dropdown-button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 120px;
+}
+
+.dropdown-button::after {
+  content: "▼";
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: none;
+  z-index: 1000;
+  min-width: 120px;
+}
+
+.sort-dropdown .dropdown-content {
+  right: 0;
+  position: absolute;
+  top: 100%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  display: none;
+  z-index: 1000;
+  width: 120px;
+  left: unset;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.dropdown-content button {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #f5f5f5;
+}
+
+/* Grid Layout */
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.music-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.music-image {
+  width: 100%;
+  height: 250px;
+}
+
+.music-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.music-info {
+  padding: 15px;
+  background: radial-gradient(242.23% 241.86% at 53.72% -58.25%, #404657 0%, rgba(64, 70, 87, 0) 100%);
+  border-radius: 0 0 12px 12px;
+}
+
+.music-title {
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+}
+
+.music-artist {
+  color: #fff;
+  font-size: 14px;
+  margin-top: 5px;
+  font-weight: 400;
+}
+
+.music-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  position: relative;
+  justify-content: space-between;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.action-button:hover {
+  color: #ff0000;
+}
+
+/* More Options Dropdown */
+.action-button.more {
+  position: relative;
+  cursor: pointer;
+}
+
+.more-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  display: none;
+  z-index: 1000;
+  min-width: 160px;
+  margin-top: 8px;
+}
+
+.more-options.show {
+  display: block;
+}
+
+.more-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.more-options li button {
+  width: 100%;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.more-options li button:hover {
+  background-color: #f5f5f5;
+}
+
+.view-more {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.view-more button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  border: 1px solid #007BFF;
+  background-color: #fff;
+  font-weight: 600;
+  color: #007BFF;
+  cursor: pointer;
+}
+
+.player {
+  background: none;
+  border: none;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.video__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  row-gap: 20px;
+}
+
+.video__item {
+  width: 100%;
+}
+
+.video__thumbnail {
+  width: 100%;
+  height: 180px;
+}
+
+.video__thumbnail img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.video_info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 0 0 24px 24px;
+  background: #F8F8F6;
+  padding: 8px 12px 16px;
+}
+
+.video_info .video_user {
+  width: 36px;
+  height: 36px;
+}
+
+.video_info .video_user img {
+  width: 100%;
+}
+
+.video_info_wrapp {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.video_info_wrapp h3 {
+  color: #030303;
+  font-size: 14px;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: keep-all;
+}
+
+.video_info_wrapp p {
+  color: #606060;
+  font-size: 12px;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: keep-all;
+}
+
+.video_info_wrapp .date {
+  color: #606060;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 0;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.kpop__box {
+  padding-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .kpop__box {
+    padding: 16px;
+    box-sizing: border-box;
+  }
+  .tab-button {
+    font-size: 14px;
+  }
+  .tab-button svg {
+    width: 18px;
+  }
+  .music-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .music-image {
+    width: 100%;
+    height: 150px;
+  }
+}/*# sourceMappingURL=style.css.map */

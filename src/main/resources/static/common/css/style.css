@@ -210,6 +210,10 @@ table {
   font-weight: 700;
 }
 
+*, body {
+  font-family: "Pretendard";
+}
+
 .header {
   padding: 1rem 2rem;
   background: white;
@@ -245,6 +249,7 @@ table {
   text-decoration: none;
   color: #333;
 }
+
 .logo img {
   height: 24px;
 }
@@ -259,6 +264,7 @@ table {
   display: flex;
   gap: 0.5rem;
 }
+
 .auth-buttons button {
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
@@ -288,6 +294,7 @@ table {
   z-index: 999;
   padding: 2rem 0;
 }
+
 .full-menu.hidden {
   display: none;
 }
@@ -309,14 +316,17 @@ table {
   margin-bottom: 1rem;
   color: var(--text-color);
 }
+
 .menu-category ul {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
+
 .menu-category li {
   margin-bottom: 0.5rem;
 }
+
 .menu-category a {
   text-decoration: none;
   color: #333;
@@ -324,6 +334,7 @@ table {
   font-weight: 400;
   font-family: "Pretendard";
 }
+
 .menu-category a:hover {
   color: var(--primary-color);
   font-weight: 700;
@@ -354,9 +365,11 @@ table {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 10px;
 }
+
 .language-options.hidden {
   display: none;
 }
+
 .language-options a {
   text-align: left;
   display: block;
@@ -365,6 +378,7 @@ table {
   color: #333;
   font-size: 16px;
 }
+
 .language-options a:hover {
   color: var(--primary-color);
   font-weight: 700;
@@ -389,9 +403,11 @@ table {
   justify-content: center;
   gap: 10px;
 }
+
 .profile p {
   font-size: 14px;
 }
+
 .profile img {
   width: 32px;
   height: 32px;
@@ -432,6 +448,7 @@ table {
   }
   ul.tab_content_wrapper {
     grid-template-columns: repeat(2, 1fr);
+    -moz-column-gap: 12px;
     column-gap: 12px;
   }
   .advertisement_banner {
@@ -645,6 +662,6 @@ table {
   .icon-box img {
     width: 40px;
   }
-}
+} 
 
 /*# sourceMappingURL=style.css.map */

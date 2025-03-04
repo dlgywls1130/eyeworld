@@ -1,0 +1,132 @@
+@use '../../../common/scss/base/variables' as *;
+
+.video__inner {
+    padding-bottom: 150px;
+
+    .swiper-horizontal>.swiper-pagination-progressbar,
+    .swiper-pagination-progressbar.swiper-pagination-horizontal {
+        bottom: 0 !important;
+        top: unset;
+    }
+}
+
+.video__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 30px;
+    row-gap: 20px;
+}
+
+.video__item {
+    width: 100%;
+}
+
+.video__thumbnail {
+    width: 100%;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.video_info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 0 0 24px 24px;
+    background: #F8F8F6;
+    padding: 8px 12px 16px;
+
+    .video_user {
+        width: 36px;
+        height: 36px;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.video_info_wrapp {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    h3 {
+        color: #030303;
+        font-size: 15px;
+        font-weight: 400;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: keep-all;
+    }
+
+    p {
+        color: #606060;
+        font-size: 15px;
+        font-weight: 700;
+        overflow: hidden;
+        white-space: normal;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        word-break: keep-all;
+    }
+
+    .date {
+        color: #606060;
+        font-size: 12px;
+        font-weight: 400;
+        margin-bottom: 0;
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        margin-top: 5px;
+    }
+}
+
+.advertise_img {
+    margin: 50px 0;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .video__inner {
+        padding: 0 20px 50px;
+        box-sizing: border-box;
+    }
+
+    .video__list {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 16px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .video__inner {
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .video__list {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        column-gap: 16px;
+        row-gap: 20px;
+    }
+
+    .advertise_img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .page_tab .tabs {
+        padding: 0 20px 30px;
+        column-gap: 20px;
+    }
+}

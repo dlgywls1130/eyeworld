@@ -56,14 +56,14 @@
 
                 <!-- 로그인전 -->
                 <div class="auth-buttons" th:if="${session.user == null}">
-                    <button class="login-btn" th:onclick="|location.href='@{/auth/login}'|">Log In</button>
-                    <button class="signup-btn" th:onclick="|location.href='@{/auth/register}'|">Sign Up</button>
+                    <button class="login-btn" th:onclick="|location.href='@{/login}'|">Log In</button>
+                    <button class="signup-btn" th:onclick="|location.href='@{/register}'|">Sign Up</button>
                 </div>
 
                 <!-- 로그인 후 -->
                 <div th:if="${session.user != null}">
                     <div class="profile">
-                        <img th:src="@{/common/assets/images/avatar.png}" alt="avatar">
+                        <img th:src="@{/static/common/assets/images/avatar.png}" alt="avatar">
                         <p th:text="${session.user.name}">홍길동</p>
                     </div>
                     <button type="button" class="non-btn logout">로그아웃</button>

@@ -41,6 +41,11 @@ public class MainController {
         return "app/knowledge/index";
     }
 
+    @GetMapping("/knowledge2")
+    public String knowledge2() {
+        return "app/knowledge/index2";
+    }
+
     @GetMapping("/communication")
     public String communication() {
         return "app/communication/index";
@@ -59,6 +64,53 @@ public class MainController {
     @GetMapping("/more")
     public String more() {
         return "app/more/index";
+    }
+
+    // 추가된 메뉴 항목들
+    @GetMapping("/webtoon")
+    public String webtoon() {
+        return "app/webtoon/index";
+    }
+
+    @GetMapping("/highschool")
+    public String highschool() {
+        return "app/highschool/index";
+    }
+
+    @GetMapping("/hobby")
+    public String hobby() {
+        return "app/hobby/index";
+    }
+
+    @GetMapping("/club")
+    public String club() {
+        return "app/club/index";
+    }
+
+    @GetMapping("/movie")
+    public String movie() {
+        return "app/movie/index";
+    }
+
+    @GetMapping("/exchange")
+    public String exchange() {
+        return "app/exchange/index";
+    }
+
+    @GetMapping("/market")
+    public String market() {
+        return "app/market/index";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "app/auth/login";
+    }
+
+
+    @GetMapping("/register")
+    public String registert() {
+        return "app/auth/register";
     }
 
     // 디버깅용 추가 메서드

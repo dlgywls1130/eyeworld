@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/more/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+
+    <div id="google_translate_element"></div>
+    <div id="app">
+        <!-- header -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="main__content">
+
+            <div class="more-header">
+                <div class="container">
+                    <h1>전체서비스</h1>
+                    <div class="top-buttons">
+                        <button class="button" data-view="alphabetical">가나다순</button>
+                        <button class="button active" data-view="category">주제별</button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="more-container">
+                <div id="category-view" class="view-content active">
+                    <div class="section">
+                        <h2 class="section-title">공간별</h2>
+                        <div class="menu-grid">
+                            <a th:href="@{/advertisement}" class="menu-item">광고공간</a>
+                            <a th:href="@{/students}" class="menu-item">학생공간</a>
+                            <a th:href="@{/teachers}" class="menu-item">선생님공간</a>
+                            <a th:href="@{/parents}" class="menu-item">학부모공간</a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">지식/소통</h2>
+                        <div class="menu-grid">
+                            <a th:href="@{/kpop}" class="menu-item">KPOP</a>
+                            <a th:href="@{/knowledge}" class="menu-item">지식공간</a>
+                            <a th:href="@{/communication}" class="menu-item">소통공간</a>
+                            <a th:href="@{/club}" class="menu-item">동아리</a>
+                            <a th:href="@{/personality}" class="menu-item">나도위인</a>
+                            <a th:href="@{/highschool}" class="menu-item">고등부</a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">콘텐츠</h2>
+                        <div class="menu-grid">
+                            <a th:href="@{/webtoon}" class="menu-item">웹툰공간</a>
+                            <a th:href="@{/hobby}" class="menu-item">취미.여행.오락공간</a>
+                            <a th:href="@{/movie}" class="menu-item">고튜브</a>
+                            <a th:href="@{/exchange}" class="menu-item">물품교환시장</a>
+                            <a th:href="@{/market}" class="menu-item">아이월마트</a>
+                            <a th:href="@{/health}" class="menu-item">건강</a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2 class="section-title">정보/문화</h2>
+                        <div class="menu-grid">
+                            <a href="#" class="menu-item">뉴스</a>
+                            <a href="#" class="menu-item">논문보기</a>
+                            <a href="#" class="menu-item">긍정을생각하다</a>
+                            <a href="#" class="menu-item">인류평화를말하다</a>
+                            <a href="#" class="menu-item">효도</a>
+                            <a href="#" class="menu-item">스트레스</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="alphabetical-view" class="view-content"></div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+    <script th:src="@{/static/app/more/js/index.js}"></script>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/communication/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <!-- header -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="subpage_contain">
+
+            <h2 class="page_title">소통공간</h2>
+            <!-- 검색창 -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search">
+                <button class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path
+                            d="M11.7669 21.2554C16.7311 21.2554 20.7554 17.2311 20.7554 12.2669C20.7554 7.30263 16.7311 3.27832 11.7669 3.27832C6.80263 3.27832 2.77832 7.30263 2.77832 12.2669C2.77832 17.2311 6.80263 21.2554 11.7669 21.2554Z"
+                            stroke="#007BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18.0186 18.9854L21.5426 22.5002" stroke="#007BFF" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- content -->
+            <div class="extra-page__box">
+                <div class="page_tab">
+                    <ul class="tabs">
+                        <li class="tab-link current" data-tab="st-1">가족소개방</li>
+                        <li class="tab-link" data-tab="st-2">친구자랑방</li>
+                        <li class="tab-link" data-tab="st-3">선생님자랑방</li>
+                        <li class="tab-link" data-tab="st-4">학교자랑방</li>
+                        <li class="tab-link" data-tab="st-5">지식나누기</li>
+                        <li class="tab-link" data-tab="st-6">상식교환하기</li>
+                        <li class="tab-link" data-tab="st-7">전자책만들기</li>
+                        <li class="tab-link" data-tab="st-8">비평남기기</li>
+                        <li class="tab-link" data-tab="st-9">영어작문작성해보기 </li>
+                        <li class="tab-link" data-tab="st-10">재능장터한마당</li>
+                        <li class="tab-link" data-tab="st-11">문화가탐방글올리기</li>
+                        <li class="tab-link" data-tab="st-12">자기소개하기</li>
+                        <li class="tab-link" data-tab="st-13">시감상하기</li>
+                    </ul>
+
+                    <div class="extra-container">
+                        <div class="aside_ad">
+                            <ul class="content__list">
+                                <li class="content__item">
+                                    <div class="advertise_img">
+                                        <img th:src="@{/static/common/assets/advert/banner03.png}" alt="광고 이미지">
+                                    </div>
+                                </li>
+                                <li class="content__item">
+                                    <div class="advertise_img">
+                                        <img th:src="@{/static/common/assets/advert/banner05.png}" alt="광고 이미지">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab_container">
+                            <div id="st-1" class="tab-content current">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-2" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-3" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-4" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-5" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-6" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-7" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-8" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-9" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-10" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-11" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-12" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="st-13" class="tab-content">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+                                        <div class="coment_header">
+
+                                            <div class="board_title">
+                                                <span class="category">가족소개방</span>
+                                                <div class="board_title-text">타이틀</div>
+                                            </div>
+                                            <div class="board_right">
+                                                <h5 class="user_name">Robert Fox </h5>
+                                                <div class="user_descript">
+                                                    <p class="date_span">3 days ago</p>
+                                                    <p class="watch">조회수 000</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment_body">
+                                            <p>Received a lot of questions about breaking into the tech industry lately.
+                                                If you're starting out or looking to switch careers, feel free to
+                                                connect with me. I'm here to help and share insights! 🚀</p>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+    <script th:src="@{/static/app/communication/js/index.js}"></script>
+</body>
+
+</html>
