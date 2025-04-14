@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "scss": "sass src/main/resources/static/common/scss:src/main/resources/static/common/css --watch",
-    "build:scss": "sass src/main/resources/static/common/scss:src/main/resources/static/common/css"
+    "scss:common": "sass src/main/resources/static/common/scss:src/main/resources/static/common/css --watch",
+    "scss:app": "sass src/main/resources/static/app/**/css:src/main/resources/static/app/**/css --watch",
+    "scss": "concurrently \"npm run scss:common\" \"npm run scss:app\"",
+    "build:scss:common": "sass src/main/resources/static/common/scss:src/main/resources/static/common/css",
+    "build:scss:app": "sass src/main/resources/static/app/**/css:src/main/resources/static/app/**/css",
+    "build:scss": "npm run build:scss:common && npm run build:scss:app"
   },
   "keywords": [],
   "author": "",

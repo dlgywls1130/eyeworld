@@ -1,1 +1,534 @@
+@charset "UTF-8";
+/* 웹툰 페이지 전체 SCSS 코드 */
+/* 메인 레이아웃 */
+.webtoon-list {
+  display: flex;
+  margin-top: 50px;
+  gap: 50px;
+  padding-bottom: 100px;
+}
+.webtoon-list .all-webtoons {
+  margin: 0;
+  width: 70%;
+}
+.webtoon-list .trending-webtoons {
+  width: 30%;
+}
+
+/* 공통 탭 네비게이션 스타일 */
+.tab-navigation {
+  display: flex;
+  /* 인기순/업데이트순/조회순/별점순 탭 스타일 */
+}
+.tab-navigation .sort-tab-input {
+  display: none;
+}
+.tab-navigation .sort-tab-input:checked + .sort-tab-label {
+  color: #00d564;
+  font-weight: 600;
+}
+.tab-navigation .sort-tab-input:checked + .sort-tab-label::after {
+  opacity: 1;
+}
+.tab-navigation .sort-tab-label {
+  padding: 5px 10px;
+  cursor: pointer;
+  position: relative;
+  color: #666;
+  font-size: 14px;
+}
+.tab-navigation .sort-tab-label::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #00d564;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.tab-navigation .sort-tab-label:hover {
+  color: #00d564;
+}
+
+/* 전체 웹툰 탭 콘텐츠 스타일 */
+.sort-content {
+  display: none;
+}
+.sort-content#content-popular {
+  display: block;
+}
+
+/* 자바스크립트 없이 CSS만으로 전체 웹툰 탭 기능 구현 */
+#tab-popular:checked ~ #content-popular {
+  display: block;
+}
+
+#tab-update:checked ~ #content-update {
+  display: block;
+}
+
+#tab-view:checked ~ #content-view {
+  display: block;
+}
+
+#tab-rating:checked ~ #content-rating {
+  display: block;
+}
+
+#tab-popular:checked ~ #content-update,
+#tab-popular:checked ~ #content-view,
+#tab-popular:checked ~ #content-rating,
+#tab-update:checked ~ #content-popular,
+#tab-update:checked ~ #content-view,
+#tab-update:checked ~ #content-rating,
+#tab-view:checked ~ #content-popular,
+#tab-view:checked ~ #content-update,
+#tab-view:checked ~ #content-rating,
+#tab-rating:checked ~ #content-popular,
+#tab-rating:checked ~ #content-update,
+#tab-rating:checked ~ #content-view {
+  display: none;
+}
+
+/* 실시간 인기웹툰 섹션 스타일 */
+.trending-webtoons {
+  margin: 0;
+  width: 30%;
+  /* 성별 필터 탭 스타일 */
+}
+
+/* 인기웹툰 탭 콘텐츠 스타일 */
+.gender-content {
+  display: none;
+}
+.gender-content#gender-content-all {
+  display: block;
+}
+
+#gender-tab-all:checked ~ #gender-content-all {
+  display: block;
+}
+
+#gender-tab-female:checked ~ #gender-content-female {
+  display: block;
+}
+
+#gender-tab-male:checked ~ #gender-content-male {
+  display: block;
+}
+
+#gender-tab-all:checked ~ #gender-content-female,
+#gender-tab-all:checked ~ #gender-content-male,
+#gender-tab-female:checked ~ #gender-content-all,
+#gender-tab-female:checked ~ #gender-content-male,
+#gender-tab-male:checked ~ #gender-content-all,
+#gender-tab-male:checked ~ #gender-content-female {
+  display: none;
+}
+
+/* 자바스크립트 없이 CSS만으로 인기웹툰 탭 기능 구현 */
+#tab-all:checked ~ #content-all {
+  display: block;
+}
+
+#tab-female:checked ~ #content-female {
+  display: block;
+}
+
+#tab-male:checked ~ #content-male {
+  display: block;
+}
+
+#tab-all:checked ~ #content-female,
+#tab-all:checked ~ #content-male,
+#tab-female:checked ~ #content-all,
+#tab-female:checked ~ #content-male,
+#tab-male:checked ~ #content-all,
+#tab-male:checked ~ #content-female {
+  display: none;
+}
+
+/* 섹션 공통 스타일 */
+section .section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+section .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+@media (max-width: 576px) {
+  section .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+section .section-header .section-filters {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+section .section-header .section-filters .filter {
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+}
+section .section-header .section-filters .filter:hover, section .section-header .section-filters .filter.active {
+  color: #00d564;
+}
+section .section-header .section-filters .filter:not(:last-child)::after {
+  content: "·";
+  margin-left: 15px;
+  color: #ccc;
+}
+
+/* 웹툰 그리드 레이아웃 */
+.webtoon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 1024px) {
+  .webtoon-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .webtoon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .webtoon-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 웹툰 아이템 스타일 */
+.webtoon-item {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+.webtoon-item:hover {
+  transform: translateY(-5px);
+}
+.webtoon-item .webtoon-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  /* 16:9 비율 */
+  overflow: hidden;
+}
+.webtoon-item .webtoon-thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.webtoon-item .webtoon-thumbnail .up-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #f53354;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+.webtoon-item .webtoon-info {
+  padding: 12px;
+}
+.webtoon-item .webtoon-info .webtoon-title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.webtoon-item .webtoon-info .webtoon-title .badge {
+  margin-left: 6px;
+  font-size: 11px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+.webtoon-item .webtoon-info .webtoon-title .badge.update {
+  background-color: #f53354;
+  color: white;
+}
+.webtoon-item .webtoon-info .webtoon-title .badge.new {
+  background-color: #00d564;
+  color: white;
+}
+@media (max-width: 768px) {
+  .webtoon-item .webtoon-info .webtoon-title {
+    font-size: 14px;
+  }
+  .webtoon-item .webtoon-info .webtoon-title .badge {
+    font-size: 10px;
+    padding: 1px 4px;
+  }
+}
+.webtoon-item .webtoon-info .webtoon-author {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 768px) {
+  .webtoon-item .webtoon-info .webtoon-author {
+    font-size: 12px;
+  }
+}
+.webtoon-item .webtoon-info .webtoon-episode {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 5px;
+}
+@media (max-width: 768px) {
+  .webtoon-item .webtoon-info .webtoon-episode {
+    font-size: 12px;
+  }
+}
+.webtoon-item .webtoon-info .webtoon-rating {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+.webtoon-item .webtoon-info .webtoon-rating .star {
+  color: #ffce3d;
+  margin-right: 3px;
+}
+.webtoon-item .webtoon-info .webtoon-rating .rating-value {
+  color: #ffce3d;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  .webtoon-item .webtoon-info .webtoon-rating {
+    font-size: 12px;
+  }
+}
+.webtoon-item.small .webtoon-thumbnail {
+  padding-bottom: 100%;
+  /* 1:1 비율 */
+}
+.webtoon-item.small .webtoon-info {
+  padding: 10px;
+}
+.webtoon-item.small .webtoon-info .webtoon-title {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 768px) {
+  .webtoon-item.small .webtoon-info .webtoon-title {
+    font-size: 13px;
+  }
+}
+
+/* 광고 배너 스타일 */
+.ad-banner {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.ad-banner .ad-content {
+  position: relative;
+}
+.ad-banner .ad-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.ad-banner .ad-content .ad-info {
+  padding: 12px;
+}
+.ad-banner .ad-content .ad-info p {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.ad-banner .ad-content .ad-info p:first-child {
+  font-weight: 700;
+}
+@media (max-width: 768px) {
+  .ad-banner .ad-content .ad-info p {
+    font-size: 12px;
+  }
+}
+.ad-banner .ad-content .ad-info .ad-tag {
+  font-size: 12px;
+  color: #888;
+}
+@media (max-width: 768px) {
+  .ad-banner .ad-content .ad-info .ad-tag {
+    font-size: 11px;
+  }
+}
+.ad-banner .ad-content .ad-info .ad-more {
+  font-size: 13px;
+  color: #666;
+  margin-top: 5px;
+  display: inline-block;
+}
+.ad-banner .ad-content .ad-info .ad-more:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .ad-banner .ad-content .ad-info .ad-more {
+    font-size: 12px;
+  }
+}
+.ad-banner .ad-content .ad-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+/* 트렌딩 아이템 (실시간 인기웹툰) 스타일 */
+.trending-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+.trending-list .trending-item {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+.trending-list .trending-item:hover {
+  transform: translateY(-3px);
+}
+.trending-list .trending-item .ranking {
+  font-size: 18px;
+  font-weight: 700;
+  color: #00d564;
+  width: 30px;
+  text-align: center;
+}
+@media (max-width: 576px) {
+  .trending-list .trending-item .ranking {
+    font-size: 16px;
+    width: 25px;
+  }
+}
+.trending-list .trending-item .trending-thumbnail {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 15px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+@media (max-width: 576px) {
+  .trending-list .trending-item .trending-thumbnail {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+  }
+}
+.trending-list .trending-item .trending-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.trending-list .trending-item .trending-thumbnail .up-label {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  background-color: #f53354;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+@media (max-width: 576px) {
+  .trending-list .trending-item .trending-thumbnail .up-label {
+    font-size: 9px;
+    padding: 1px 3px;
+  }
+}
+.trending-list .trending-item .trending-info {
+  flex: 1;
+}
+.trending-list .trending-item .trending-info .trending-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 576px) {
+  .trending-list .trending-item .trending-info .trending-title {
+    font-size: 13px;
+  }
+}
+.trending-list .trending-item .trending-info .trending-author {
+  font-size: 12px;
+  color: #666;
+}
+@media (max-width: 576px) {
+  .trending-list .trending-item .trending-info .trending-author {
+    font-size: 11px;
+  }
+}
+
+/* 반응형 스타일 */
+@media (max-width: 768px) {
+  .webtoon-list .trending-webtoons {
+    width: 100%;
+  }
+  .webtoon-list {
+    flex-direction: column;
+  }
+  .webtoon-list .all-webtoons {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 480px) {
+  section {
+    margin: 20px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+  .webtoon-grid {
+    gap: 15px;
+  }
+  .section-title {
+    font-size: 16px;
+  }
+  .section-filters .filter {
+    font-size: 13px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */

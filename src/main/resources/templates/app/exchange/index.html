@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/exchange/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <!-- header -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="subpage_contain">
+
+            <h2 class="page_title">물물교환 시장</h2>
+            <!-- 검색창 -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search">
+                <button class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path
+                            d="M11.7669 21.2554C16.7311 21.2554 20.7554 17.2311 20.7554 12.2669C20.7554 7.30263 16.7311 3.27832 11.7669 3.27832C6.80263 3.27832 2.77832 7.30263 2.77832 12.2669C2.77832 17.2311 6.80263 21.2554 11.7669 21.2554Z"
+                            stroke="#007BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18.0186 18.9854L21.5426 22.5002" stroke="#007BFF" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- content -->
+            <div class="extra-page__box">
+                <div class="page_tab">
+
+
+                    <div class="extra-container">
+                        <div class="aside_ad">
+                            <ul class="content__list">
+                                <li class="content__item">
+                                    <div class="advertise_img">
+                                        <img th:src="@{/static/common/assets/advert/banner03.png}" alt="광고 이미지">
+                                    </div>
+                                </li>
+                                <li class="content__item">
+                                    <div class="advertise_img">
+                                        <img th:src="@{/static/common/assets/advert/banner05.png}" alt="광고 이미지">
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab_container">
+                            <div class="exchange__list">
+                                <ul class="coment_list">
+                                    <li class="coment__item">
+
+                                        <div class="comment_body">
+                                            <div class="product_img">
+                                                <img src="../../../static/common/assets/images/product6.png">
+                                            </div>
+                                            <div class="product_des">
+                                                <div class="coment_header">
+
+                                                    <div class="board_title">
+                                                        <span class="category">교환</span>
+                                                        <div class="board_title-text">물건이름</div>
+                                                    </div>
+                                                    <div class="board_right">
+                                                        
+                                                        <div class="user_descript">
+                                                            
+                                                            <p class="watch">조회수 000</p>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body__flex">
+                                                    
+
+                                                    <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    </svg>서울</p>
+                                                    <p class="date_span">3 days ago</p>
+                                                </div>
+                                                
+                                                <p>Received a lot of questions about breaking into the tech industry lately.
+                                                    If you're starting out or looking to switch careers, feel free to
+                                                    connect with me. I'm here to help and share insights! 🚀
+                                                </p>
+
+                                                <p class="product_price">5,000원</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+
+                                        <div class="comment_body">
+                                            <div class="product_img">
+                                                <img src="../../../static/common/assets/images/product6.png">
+                                            </div>
+                                            <div class="product_des">
+                                                <div class="coment_header">
+
+                                                    <div class="board_title">
+                                                        <span class="category">교환</span>
+                                                        <div class="board_title-text">물건이름</div>
+                                                    </div>
+                                                    <div class="board_right">
+                                                        
+                                                        <div class="user_descript">
+                                                            
+                                                            <p class="watch">조회수 000</p>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body__flex">
+                                                    
+
+                                                    <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    </svg>서울</p>
+                                                    <p class="date_span">3 days ago</p>
+                                                </div>
+                                                
+                                                <p>Received a lot of questions about breaking into the tech industry lately.
+                                                    If you're starting out or looking to switch careers, feel free to
+                                                    connect with me. I'm here to help and share insights! 🚀
+                                                </p>
+
+                                                <p class="product_price">5,000원</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+
+                                        <div class="comment_body">
+                                            <div class="product_img">
+                                                <img src="../../../static/common/assets/images/product6.png">
+                                            </div>
+                                            <div class="product_des">
+                                                <div class="coment_header">
+
+                                                    <div class="board_title">
+                                                        <span class="category">교환</span>
+                                                        <div class="board_title-text">물건이름</div>
+                                                    </div>
+                                                    <div class="board_right">
+                                                        
+                                                        <div class="user_descript">
+                                                            
+                                                            <p class="watch">조회수 000</p>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body__flex">
+                                                    
+
+                                                    <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    </svg>서울</p>
+                                                    <p class="date_span">3 days ago</p>
+                                                </div>
+                                                
+                                                <p>Received a lot of questions about breaking into the tech industry lately.
+                                                    If you're starting out or looking to switch careers, feel free to
+                                                    connect with me. I'm here to help and share insights! 🚀
+                                                </p>
+
+                                                <p class="product_price">5,000원</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+
+                                        <div class="comment_body">
+                                            <div class="product_img">
+                                                <img src="../../../static/common/assets/images/product6.png">
+                                            </div>
+                                            <div class="product_des">
+                                                <div class="coment_header">
+
+                                                    <div class="board_title">
+                                                        <span class="category">교환</span>
+                                                        <div class="board_title-text">물건이름</div>
+                                                    </div>
+                                                    <div class="board_right">
+                                                        
+                                                        <div class="user_descript">
+                                                            
+                                                            <p class="watch">조회수 000</p>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body__flex">
+                                                    
+
+                                                    <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    </svg>서울</p>
+                                                    <p class="date_span">3 days ago</p>
+                                                </div>
+                                                
+                                                <p>Received a lot of questions about breaking into the tech industry lately.
+                                                    If you're starting out or looking to switch careers, feel free to
+                                                    connect with me. I'm here to help and share insights! 🚀
+                                                </p>
+
+                                                <p class="product_price">5,000원</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+
+                                        <div class="comment_body">
+                                            <div class="product_img">
+                                                <img src="../../../static/common/assets/images/product6.png">
+                                            </div>
+                                            <div class="product_des">
+                                                <div class="coment_header">
+
+                                                    <div class="board_title">
+                                                        <span class="category">교환</span>
+                                                        <div class="board_title-text">물건이름</div>
+                                                    </div>
+                                                    <div class="board_right">
+                                                        
+                                                        <div class="user_descript">
+                                                            
+                                                            <p class="watch">조회수 000</p>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body__flex">
+                                                    
+
+                                                    <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    </svg>서울</p>
+                                                    <p class="date_span">3 days ago</p>
+                                                </div>
+                                                
+                                                <p>Received a lot of questions about breaking into the tech industry lately.
+                                                    If you're starting out or looking to switch careers, feel free to
+                                                    connect with me. I'm here to help and share insights! 🚀
+                                                </p>
+
+                                                <p class="product_price">5,000원</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+
+                                        <div class="comment_body">
+                                            <div class="product_img">
+                                                <img src="../../../static/common/assets/images/product6.png">
+                                            </div>
+                                            <div class="product_des">
+                                                <div class="coment_header">
+
+                                                    <div class="board_title">
+                                                        <span class="category">교환</span>
+                                                        <div class="board_title-text">물건이름</div>
+                                                    </div>
+                                                    <div class="board_right">
+                                                        
+                                                        <div class="user_descript">
+                                                            
+                                                            <p class="watch">조회수 000</p>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body__flex">
+                                                    
+
+                                                    <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    </svg>서울</p>
+                                                    <p class="date_span">3 days ago</p>
+                                                </div>
+                                                
+                                                <p>Received a lot of questions about breaking into the tech industry lately.
+                                                    If you're starting out or looking to switch careers, feel free to
+                                                    connect with me. I'm here to help and share insights! 🚀
+                                                </p>
+
+                                                <p class="product_price">5,000원</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+
+                                        <div class="comment_body">
+                                            <div class="product_img">
+                                                <img src="../../../static/common/assets/images/product6.png">
+                                            </div>
+                                            <div class="product_des">
+                                                <div class="coment_header">
+
+                                                    <div class="board_title">
+                                                        <span class="category">교환</span>
+                                                        <div class="board_title-text">물건이름</div>
+                                                    </div>
+                                                    <div class="board_right">
+                                                        
+                                                        <div class="user_descript">
+                                                            
+                                                            <p class="watch">조회수 000</p>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body__flex">
+                                                    
+
+                                                    <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    </svg>서울</p>
+                                                    <p class="date_span">3 days ago</p>
+                                                </div>
+                                                
+                                                <p>Received a lot of questions about breaking into the tech industry lately.
+                                                    If you're starting out or looking to switch careers, feel free to
+                                                    connect with me. I'm here to help and share insights! 🚀
+                                                </p>
+
+                                                <p class="product_price">5,000원</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+
+                                        <div class="comment_body">
+                                            <div class="product_img">
+                                                <img src="../../../static/common/assets/images/product6.png">
+                                            </div>
+                                            <div class="product_des">
+                                                <div class="coment_header">
+
+                                                    <div class="board_title">
+                                                        <span class="category">교환</span>
+                                                        <div class="board_title-text">물건이름</div>
+                                                    </div>
+                                                    <div class="board_right">
+                                                        
+                                                        <div class="user_descript">
+                                                            
+                                                            <p class="watch">조회수 000</p>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body__flex">
+                                                    
+
+                                                    <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    </svg>서울</p>
+                                                    <p class="date_span">3 days ago</p>
+                                                </div>
+                                                
+                                                <p>Received a lot of questions about breaking into the tech industry lately.
+                                                    If you're starting out or looking to switch careers, feel free to
+                                                    connect with me. I'm here to help and share insights! 🚀
+                                                </p>
+
+                                                <p class="product_price">5,000원</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                    <li class="coment__item">
+
+                                        <div class="comment_body">
+                                            <div class="product_img">
+                                                <img src="../../../static/common/assets/images/product6.png">
+                                            </div>
+                                            <div class="product_des">
+                                                <div class="coment_header">
+
+                                                    <div class="board_title">
+                                                        <span class="category">교환</span>
+                                                        <div class="board_title-text">물건이름</div>
+                                                    </div>
+                                                    <div class="board_right">
+                                                        
+                                                        <div class="user_descript">
+                                                            
+                                                            <p class="watch">조회수 000</p>
+        
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="body__flex">
+                                                    
+
+                                                    <p class="location"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                                        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+                                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                                                    </svg>서울</p>
+                                                    <p class="date_span">3 days ago</p>
+                                                </div>
+                                                
+                                                <p>Received a lot of questions about breaking into the tech industry lately.
+                                                    If you're starting out or looking to switch careers, feel free to
+                                                    connect with me. I'm here to help and share insights! 🚀
+                                                </p>
+
+                                                <p class="product_price">5,000원</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <div class="page_list">
+                                    <button type="button" class="non-btn rrow">
+                                        <img th:src="@{/static/common/assets/images/ico_prearrow.png}" alt="처음으로">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_pre.png}" alt="이전">
+                                    </button>
+
+                                    <ul class="number_list">
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">8</a></li>
+                                    </ul>
+
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_next.png}" alt="다음">
+                                    </button>
+                                    <button type="button" class="non-btn arrow">
+                                        <img th:src="@{/static/common/assets/images/ico_nextarrow.png}" alt="마지막으로">
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+    <script th:src="@{/static/app/club/js/index.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/webtoon/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <!-- header -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="subpage_contain">
+
+            <h2 class="page_title">웹툰공간</h2>
+            <!-- 검색창 -->
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search">
+                <button class="search-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+                        <path
+                            d="M11.7669 21.2554C16.7311 21.2554 20.7554 17.2311 20.7554 12.2669C20.7554 7.30263 16.7311 3.27832 11.7669 3.27832C6.80263 3.27832 2.77832 7.30263 2.77832 12.2669C2.77832 17.2311 6.80263 21.2554 11.7669 21.2554Z"
+                            stroke="#007BFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18.0186 18.9854L21.5426 22.5002" stroke="#007BFF" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+
+            <section class="recommended-webtoons">
+                <h2 class="section-title">추천 웹툰</h2>
+                
+                <div class="webtoon-grid">
+                    <!-- 웹툰 아이템 1 -->
+                    <div class="webtoon-item">
+                        <div class="webtoon-thumbnail">
+                            <img src="https://image-comic.pstatic.net/webtoon/835693/thumbnail/titledescimage/frontImage_b23ec2a1-0876-47ed-a864-c4a947eff6e8.png" alt="여자친구구">
+                        </div>
+                        <div class="webtoon-info">
+                            <h3 class="webtoon-title">
+                                여자친구구
+                                <span class="badge new">신작</span>
+                            </h3>
+                            <p class="webtoon-author">이상용</p>
+                            <p class="webtoon-episode">12화 - 수학여행(6)</p>
+                            <div class="webtoon-rating">
+                                <span class="star">★</span>
+                                <span class="rating-value">9.95</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- 웹툰 아이템 2 -->
+                    <div class="webtoon-item">
+                        <div class="webtoon-thumbnail">
+                            <img src="https://image-comic.pstatic.net/webtoon/758150/thumbnail/thumbnail_IMAG21_4135492154714961716.jpg" alt="헬스티칭">
+                        </div>
+                        <div class="webtoon-info">
+                            <h3 class="webtoon-title">
+                                헬스티칭
+                                <span class="badge update">UP</span>
+                            </h3>
+                            <p class="webtoon-author">도메인네 / 채중</p>
+                            <p class="webtoon-episode">83화</p>
+                            <div class="webtoon-rating">
+                                <span class="star">★</span>
+                                <span class="rating-value">9.64</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- 웹툰 아이템 3 -->
+                    <div class="webtoon-item">
+                        <div class="webtoon-thumbnail">
+                            <img src="https://image-comic.pstatic.net/webtoon/737628/thumbnail/thumbnail_IMAG21_9e108875-36b5-4872-8ace-53a6e492376b.jpg" alt="냉동모사">
+                        </div>
+                        <div class="webtoon-info">
+                            <h3 class="webtoon-title">
+                                냉동모사
+                                <span class="badge update">UP</span>
+                            </h3>
+                            <p class="webtoon-author">벵만서, 토이, 서병해주심시오 / 최용준</p>
+                            <p class="webtoon-episode">10화</p>
+                            <div class="webtoon-rating">
+                                <span class="star">★</span>
+                                <span class="rating-value">9.83</span>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- 광고 배너 -->
+                    <!-- <div class="ad-banner">
+                        <div class="ad-content">
+                            <img src="../../../static/common/assets/advert/banner01.png" alt="Advertisement">
+                            <div class="ad-info">
+                                <p>웨딩드레스 파탕퍼즐 초대전</p>
+                                <p>스토어 특가 88만원</p>
+                                <p class="ad-tag">한나레딩</p>
+                                <a href="#" class="ad-more">더 알아보기 ›</a>
+                            </div>
+                            <span class="ad-label">AD ×</span>
+                        </div>
+                    </div> -->
+                </div>
+            </section>
+        
+            <div class="webtoon-list">
+                <!-- 전체 웹툰 섹션 -->
+                <section class="all-webtoons">
+                    <div class="section-header">
+                        <h2 class="section-title">전체 웹툰</h2>
+                        <div class="section-filters">
+                            <div class="tab-navigation">
+                                <input type="radio" name="sort-tab" id="tab-popular" class="sort-tab-input" checked>
+                                <label for="tab-popular" class="sort-tab-label">인기순</label>
+                                
+                                <input type="radio" name="sort-tab" id="tab-update" class="sort-tab-input">
+                                <label for="tab-update" class="sort-tab-label">업데이트순</label>
+                                
+                                <input type="radio" name="sort-tab" id="tab-view" class="sort-tab-input">
+                                <label for="tab-view" class="sort-tab-label">조회순</label>
+                                
+                                <input type="radio" name="sort-tab" id="tab-rating" class="sort-tab-input">
+                                <label for="tab-rating" class="sort-tab-label">별점순</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sort-content" id="content-popular">
+                        <div class="webtoon-grid">
+                            <!-- 웹툰 아이템 1 -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/811721/thumbnail/thumbnail_IMAG21_4db2b4b4-ba56-4768-b13f-a81d69e508f5.jpg" alt="무직백수 계백순">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">무직백수 계백순</h3>
+                                    <p class="webtoon-author">지방</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.85</span>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- 웹툰 아이템 2 -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/758150/thumbnail/thumbnail_IMAG21_4135492154714961716.jpg" alt="임학용병">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">임학용병</h3>
+                                    <p class="webtoon-author">YC / 회현</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.90</span>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- 웹툰 아이템 3 -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/737628/thumbnail/thumbnail_IMAG21_9e108875-36b5-4872-8ace-53a6e492376b.jpg" alt="별이삼십">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">별이삼십</h3>
+                                    <p class="webtoon-author">허노</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.95</span>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- 웹툰 아이템 4 -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/821851/thumbnail/thumbnail_IMAG21_d67261bc-0aea-495c-b92e-07dc2c1785cd.jpg" alt="기기괴괴2">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">기기괴괴2</h3>
+                                    <p class="webtoon-author">오성대</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.87</span>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <!-- 웹툰 아이템 5 -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/805193/thumbnail/thumbnail_IMAG21_72d0c645-de0a-43f2-9674-73909671fa5e.jpg" alt="전화시고 대공자">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">전화시고 대공자</h3>
+                                    <p class="webtoon-author">128 / MIDNIGHT STUDIO</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.95</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 업데이트순 콘텐츠 -->
+                    <div class="sort-content" id="content-update">
+                        <div class="webtoon-grid">
+                            <!-- 웹툰 아이템 1 (업데이트순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/758150/thumbnail/thumbnail_IMAG21_4135492154714961716.jpg" alt="임학용병">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">임학용병</h3>
+                                    <p class="webtoon-author">YC / 회현</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.90</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 2 (업데이트순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/737628/thumbnail/thumbnail_IMAG21_9e108875-36b5-4872-8ace-53a6e492376b.jpg" alt="별이삼십">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">별이삼십</h3>
+                                    <p class="webtoon-author">허노</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.95</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 3 (업데이트순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/811721/thumbnail/thumbnail_IMAG21_4db2b4b4-ba56-4768-b13f-a81d69e508f5.jpg" alt="무직백수 계백순">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">무직백수 계백순</h3>
+                                    <p class="webtoon-author">지방</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.85</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 4 (업데이트순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/821851/thumbnail/thumbnail_IMAG21_d67261bc-0aea-495c-b92e-07dc2c1785cd.jpg" alt="기기괴괴2">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">기기괴괴2</h3>
+                                    <p class="webtoon-author">오성대</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.87</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 5 (업데이트순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/805193/thumbnail/thumbnail_IMAG21_72d0c645-de0a-43f2-9674-73909671fa5e.jpg" alt="전화시고 대공자">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">전화시고 대공자</h3>
+                                    <p class="webtoon-author">128 / MIDNIGHT STUDIO</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.95</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 조회순 콘텐츠 -->
+                    <div class="sort-content" id="content-view">
+                        <div class="webtoon-grid">
+                            <!-- 웹툰 아이템 1 (조회순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/737628/thumbnail/thumbnail_IMAG21_9e108875-36b5-4872-8ace-53a6e492376b.jpg" alt="별이삼십">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">별이삼십</h3>
+                                    <p class="webtoon-author">허노</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.95</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 2 (조회순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/821851/thumbnail/thumbnail_IMAG21_d67261bc-0aea-495c-b92e-07dc2c1785cd.jpg" alt="기기괴괴2">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">기기괴괴2</h3>
+                                    <p class="webtoon-author">오성대</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.87</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 3 (조회순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/758150/thumbnail/thumbnail_IMAG21_4135492154714961716.jpg" alt="임학용병">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">임학용병</h3>
+                                    <p class="webtoon-author">YC / 회현</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.90</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 4 (조회순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/805193/thumbnail/thumbnail_IMAG21_72d0c645-de0a-43f2-9674-73909671fa5e.jpg" alt="전화시고 대공자">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">전화시고 대공자</h3>
+                                    <p class="webtoon-author">128 / MIDNIGHT STUDIO</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.95</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 5 (조회순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/811721/thumbnail/thumbnail_IMAG21_4db2b4b4-ba56-4768-b13f-a81d69e508f5.jpg" alt="무직백수 계백순">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">무직백수 계백순</h3>
+                                    <p class="webtoon-author">지방</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.85</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 별점순 콘텐츠 -->
+                    <div class="sort-content" id="content-rating">
+                        <div class="webtoon-grid">
+                            <!-- 웹툰 아이템 1 (별점순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/737628/thumbnail/thumbnail_IMAG21_9e108875-36b5-4872-8ace-53a6e492376b.jpg" alt="별이삼십">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">별이삼십</h3>
+                                    <p class="webtoon-author">허노</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.95</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 2 (별점순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/805193/thumbnail/thumbnail_IMAG21_72d0c645-de0a-43f2-9674-73909671fa5e.jpg" alt="전화시고 대공자">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">전화시고 대공자</h3>
+                                    <p class="webtoon-author">128 / MIDNIGHT STUDIO</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.95</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 3 (별점순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/758150/thumbnail/thumbnail_IMAG21_4135492154714961716.jpg" alt="임학용병">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">임학용병</h3>
+                                    <p class="webtoon-author">YC / 회현</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.90</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 4 (별점순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/821851/thumbnail/thumbnail_IMAG21_d67261bc-0aea-495c-b92e-07dc2c1785cd.jpg" alt="기기괴괴2">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">기기괴괴2</h3>
+                                    <p class="webtoon-author">오성대</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.87</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 웹툰 아이템 5 (별점순) -->
+                            <div class="webtoon-item small">
+                                <div class="webtoon-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/811721/thumbnail/thumbnail_IMAG21_4db2b4b4-ba56-4768-b13f-a81d69e508f5.jpg" alt="무직백수 계백순">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="webtoon-info">
+                                    <h3 class="webtoon-title">무직백수 계백순</h3>
+                                    <p class="webtoon-author">지방</p>
+                                    <div class="webtoon-rating">
+                                        <span class="star">★</span>
+                                        <span class="rating-value">9.85</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+        
+                <!-- 실시간 인기웹툰 섹션 -->
+                <section class="trending-webtoons">
+                    <div class="section-header">
+                        <h2 class="section-title">실시간 인기웹툰</h2>
+                        <div class="section-filters">
+                            <div class="tab-navigation">
+                                <input type="radio" name="gender-tab" id="gender-tab-all" class="sort-tab-input" checked>
+                                <label for="gender-tab-all" class="sort-tab-label">전체</label>
+                                
+                                <input type="radio" name="gender-tab" id="gender-tab-female" class="sort-tab-input">
+                                <label for="gender-tab-female" class="sort-tab-label">여성</label>
+                                
+                                <input type="radio" name="gender-tab" id="gender-tab-male" class="sort-tab-input">
+                                <label for="gender-tab-male" class="sort-tab-label">남성</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 전체 탭 콘텐츠 -->
+                    <div class="gender-content" id="gender-content-all">
+                        <div class="trending-list">
+                            <!-- 인기 웹툰 1 -->
+                            <div class="trending-item">
+                                <div class="ranking">1</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/737628/thumbnail/thumbnail_IMAG21_9e108875-36b5-4872-8ace-53a6e492376b.jpg" alt="별이삼십">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">별이삼십</h3>
+                                    <p class="trending-author">허노</p>
+                                </div>
+                            </div>
+
+                            <!-- 인기 웹툰 2 -->
+                            <div class="trending-item">
+                                <div class="ranking">2</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/758150/thumbnail/thumbnail_IMAG21_4135492154714961716.jpg" alt="임학용병">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">임학용병</h3>
+                                    <p class="trending-author">YC / 학현</p>
+                                </div>
+                            </div>
+
+                            <!-- 인기 웹툰 3 -->
+                            <div class="trending-item">
+                                <div class="ranking">3</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/641253/thumbnail/thumbnail_IMAG21_01672165-03c8-44b1-ba0e-ef82c9cfcd10.jpg" alt="외모지상주의">
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">외모지상주의</h3>
+                                    <p class="trending-author">박태준</p>
+                                </div>
+                            </div>
+
+                            <!-- 인기 웹툰 4 -->
+                            <div class="trending-item">
+                                <div class="ranking">4</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/827190/thumbnail/thumbnail_IMAG21_ce05e060-9420-4494-a004-278f90e8dde9.jpg" alt="시즌 꽃에 눈물을">
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">시즌 꽃에 눈물을</h3>
+                                    <p class="trending-author">작가명</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 여성 탭 콘텐츠 -->
+                    <div class="gender-content" id="gender-content-female">
+                        <div class="trending-list">
+                            <!-- 여성 인기 웹툰 1 -->
+                            <div class="trending-item">
+                                <div class="ranking">1</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/805193/thumbnail/thumbnail_IMAG21_72d0c645-de0a-43f2-9674-73909671fa5e.jpg" alt="전화시고 대공자">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">전화시고 대공자</h3>
+                                    <p class="trending-author">128 / MIDNIGHT STUDIO</p>
+                                </div>
+                            </div>
+
+                            <!-- 여성 인기 웹툰 2 -->
+                            <div class="trending-item">
+                                <div class="ranking">2</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/737628/thumbnail/thumbnail_IMAG21_9e108875-36b5-4872-8ace-53a6e492376b.jpg" alt="별이삼십">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">별이삼십</h3>
+                                    <p class="trending-author">허노</p>
+                                </div>
+                            </div>
+
+                            <!-- 여성 인기 웹툰 3 -->
+                            <div class="trending-item">
+                                <div class="ranking">3</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/758150/thumbnail/thumbnail_IMAG21_4135492154714961716.jpg" alt="임학용병">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">임학용병</h3>
+                                    <p class="trending-author">YC / 학현</p>
+                                </div>
+                            </div>
+
+                            <!-- 여성 인기 웹툰 4 -->
+                            <div class="trending-item">
+                                <div class="ranking">4</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/827190/thumbnail/thumbnail_IMAG21_ce05e060-9420-4494-a004-278f90e8dde9.jpg" alt="시즌 꽃에 눈물을">
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">시즌 꽃에 눈물을</h3>
+                                    <p class="trending-author">작가명</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 남성 탭 콘텐츠 -->
+                    <div class="gender-content" id="gender-content-male">
+                        <div class="trending-list">
+                            <!-- 남성 인기 웹툰 1 -->
+                            <div class="trending-item">
+                                <div class="ranking">1</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/641253/thumbnail/thumbnail_IMAG21_01672165-03c8-44b1-ba0e-ef82c9cfcd10.jpg" alt="외모지상주의">
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">외모지상주의</h3>
+                                    <p class="trending-author">박태준</p>
+                                </div>
+                            </div>
+
+                            <!-- 남성 인기 웹툰 2 -->
+                            <div class="trending-item">
+                                <div class="ranking">2</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/821851/thumbnail/thumbnail_IMAG21_d67261bc-0aea-495c-b92e-07dc2c1785cd.jpg" alt="기기괴괴2">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">기기괴괴2</h3>
+                                    <p class="trending-author">오성대</p>
+                                </div>
+                            </div>
+
+                            <!-- 남성 인기 웹툰 3 -->
+                            <div class="trending-item">
+                                <div class="ranking">3</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/811721/thumbnail/thumbnail_IMAG21_4db2b4b4-ba56-4768-b13f-a81d69e508f5.jpg" alt="무직백수 계백순">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">무직백수 계백순</h3>
+                                    <p class="trending-author">지방</p>
+                                </div>
+                            </div>
+
+                            <!-- 남성 인기 웹툰 4 -->
+                            <div class="trending-item">
+                                <div class="ranking">4</div>
+                                <div class="trending-thumbnail">
+                                    <img src="https://image-comic.pstatic.net/webtoon/758150/thumbnail/thumbnail_IMAG21_4135492154714961716.jpg" alt="임학용병">
+                                    <span class="up-label">UP</span>
+                                </div>
+                                <div class="trending-info">
+                                    <h3 class="trending-title">임학용병</h3>
+                                    <p class="trending-author">YC / 학현</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+
+
+        </div>
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+    <script th:src="@{/static/app/webtoon/js/index.js}"></script>
+</body>
+
+</html>

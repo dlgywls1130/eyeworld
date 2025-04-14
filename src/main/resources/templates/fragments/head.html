@@ -51,14 +51,111 @@
     <link rel="stylesheet" type="text/css"  th:href="@{/static/common/css/style.css}">
     <link rel="stylesheet" type="text/css"  th:href="@{/static/common/css/layouts/header.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" type="text/css"  th:href="@{/static/common/css/layouts/write.css}">
+    
     <!-- 페이지별 CSS -->
     <th:block th:replace="${links} ?: ~{}"></th:block>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ko',
+                includedLanguages: 'en,zh-CN,es,fr,de,ja,ru,ar,it,pt,nl,tr,pl,vi,th,id',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // 번역 관련 요소 제거
+            function removeTranslateElements() {
+                var elems = [
+                    '.goog-te-banner-frame',
+                    '.skiptranslate',
+                    '#goog-gt-tt',
+                    '.goog-te-balloon-frame'
+                ];
+                
+                elems.forEach(function(selector) {
+                    var elements = document.querySelectorAll(selector);
+                    for (var i = 0; i < elements.length; i++) {
+                        elements[i].style.display = 'none';
+                    }
+                });
+                
+                // body의 top 스타일 제거
+                document.body.style.top = '0px';
+            }
+            
+            // 페이지 로드 후 실행
+            removeTranslateElements();
+            
+            // 변경 감지를 위한 MutationObserver
+            var observer = new MutationObserver(function(mutations) {
+                removeTranslateElements();
+            });
+            
+            // 전체 문서 변경 감시
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+        });
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+
+    <script defer type="text/javascript" th:src="@{/static/common/js/language-switcher.js}"></script>
     <script defer type="text/javascript" th:src="@{/static/common/js/index.js}"></script>
     <th:block th:replace="${scripts} ?: ~{}"></th:block>
+
+<!-- Google 번역 툴바 완전히 숨기기 -->
+<style>
+    /* 구글 상단 바 제거 - 강화된 버전 */
+    .goog-te-banner-frame,
+    .skiptranslate,
+    .goog-te-gadget-icon {
+        display: none !important;
+    }
+    
+    .goog-tooltip,
+    .goog-tooltip:hover {
+        display: none !important;
+    }
+    
+    .goog-text-highlight {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    
+    body {
+        top: 0 !important;
+        position: static !important;
+    }
+    
+    /* 모바일 버전의 번역 도구 상단 막대 */
+    #goog-gt-tt, 
+    .goog-te-balloon-frame {
+        display: none !important;
+    }
+    
+    /* 혹시 모를 다른 번역 관련 요소 숨김 */
+    .goog-te-menu-value,
+    .goog-te-gadget-simple {
+        display: inline !important;
+    }
+    
+    /* Google URL 바 제거 */
+    #google_translate_element select {
+        padding: 7px !important;
+    }
+</style>
+    
 </head>
 
 </html>

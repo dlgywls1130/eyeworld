@@ -113,6 +113,41 @@ public class MainController {
         return "app/auth/register";
     }
 
+    @GetMapping("/affirmation")
+    public String affirmation() {
+        return "app/affirmation/index";
+    }
+
+    @GetMapping("/thesis")
+    public String thesis() {
+        return "app/thesis/index";
+    }
+
+    @GetMapping("/filialPiety")
+    public String filialPiety() {
+        return "app/filialPiety/index";
+    }
+
+    @GetMapping("/news")
+    public String news() {
+        return "app/news/index";
+    }
+
+    @GetMapping("/peace")
+    public String peace() {
+        return "app/peace/index";
+    }
+
+    @GetMapping("/stress")
+    public String stress() {
+        return "app/stress/index";
+    }
+
+    @GetMapping("/write")
+    public String write() {
+        return "fragments/write";
+    }
+
     // 디버깅용 추가 메서드
     @GetMapping("/test")
     public String test() {

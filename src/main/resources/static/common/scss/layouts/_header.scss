@@ -212,6 +212,66 @@
     display: none;
   }
   
+  .nav-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+  }
+
+  .menu-icon {
+    width: 24px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    
+    span {
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: #1F1F1F;
+      border-radius: 2px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .25s ease-in-out;
+      
+      &:nth-child(1) {
+        top: 0px;
+      }
+      
+      &:nth-child(2) {
+        top: 10px;
+      }
+      
+      &:nth-child(3) {
+        top: 20px;
+      }
+    }
+    
+    &.open {
+      span {
+        &:nth-child(1) {
+          top: 10px;
+          transform: rotate(135deg);
+        }
+        
+        &:nth-child(2) {
+          opacity: 0;
+          left: -60px;
+        }
+        
+        &:nth-child(3) {
+          top: 10px;
+          transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+
   @media screen and (max-width: 768px) {
     .main__content {
       max-width: 100%;
@@ -506,6 +566,10 @@
   
     .icon-box img {
       width: 40px;
+    }
+
+    .menu-icon{
+      margin-top: 10px;
     }
   }
   

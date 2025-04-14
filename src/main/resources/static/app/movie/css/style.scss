@@ -1,0 +1,183 @@
+@use '../../../common/scss/base/variables' as *;
+
+// 변수 정의
+$primary-text-color: #030303;
+$secondary-text-color: #606060;
+$thumbnail-gap: 30px;
+$thumbnail-row-gap: 20px;
+$mobile-gap: 16px;
+
+// 비디오 섹션 스타일
+.video__inner {
+  padding-bottom: 150px;
+
+  // 비디오 리스트 그리드 레이아웃
+  .video__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: $thumbnail-gap;
+    row-gap: $thumbnail-row-gap;
+  }
+
+  // 비디오 아이템 스타일
+  .video__item {
+    width: 100%;
+    
+    // 썸네일 스타일
+    .video__thumbnail {
+      width: 100%;
+      overflow: hidden;
+      border-radius: 8px;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+    
+    // 비디오 정보 영역
+    .video_info {
+      display: flex;
+      align-items: flex-start;
+      margin-top: 12px;
+      gap: 10px;
+      
+      // 프로필 이미지
+      .video_user {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      // 비디오 텍스트 정보
+      .video_info_wrapp {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        
+        // 비디오 제목
+        h3 {
+          color: $primary-text-color;
+          font-size: 14px;
+          font-weight: 600;
+          margin: 0;
+          overflow: hidden;
+          white-space: normal;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          word-break: keep-all;
+        }
+        
+        // 채널명
+        p {
+          color: $secondary-text-color;
+          font-size: 14px;
+          font-weight: 400;
+          margin: 0;
+        }
+        
+        // 조회수, 업로드 시간
+        .date {
+          color: $secondary-text-color;
+          font-size: 12px;
+          font-weight: 400;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  
+  // 광고 배너 스와이퍼
+  .advertise_img {
+    margin: 50px 0;
+    
+    .swiper-slide img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+  
+  // 스와이퍼 페이지네이션 위치 조정
+  .swiper-horizontal > .swiper-pagination-progressbar, 
+  .swiper-pagination-progressbar.swiper-pagination-horizontal {
+    bottom: 0 !important;
+    top: unset;
+  }
+}
+
+// 태블릿 반응형
+@media (min-width: 769px) and (max-width: 1024px) {
+  .video__inner {
+    padding: 0 20px 50px;
+    box-sizing: border-box;
+    
+    .video__list {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: $mobile-gap;
+    }
+  }
+}
+
+// 모바일 반응형
+@media screen and (max-width: 768px) {
+  .video__inner {
+    padding: 0 20px 50px;
+    box-sizing: border-box;
+    
+    .video__list {
+      grid-template-columns: repeat(1, 1fr);
+      column-gap: $mobile-gap;
+      row-gap: $thumbnail-row-gap;
+    }
+    
+    .advertise_img {
+      width: 100%;
+      height: 250px;
+      
+      .swiper-slide img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+// 페이지 제목 스타일
+.page_title {
+  font-size: 28px;
+  font-weight: 700;
+  color: $primary-text-color;
+  margin-bottom: 30px;
+}
+
+// 서브페이지 컨테이너
+.subpage_contain {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 0;
+  
+  @media screen and (max-width: 768px) {
+    padding: 40px 20px;
+  }
+}
+
+// kpop 박스
+.kpop__box {
+  width: 100%;
+}

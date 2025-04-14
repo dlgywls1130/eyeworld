@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/communication/css/style.css}">
+        
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        
+    </th:block>
+    <div id="google_translate_element"></div>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="board-write-container">
+        <h2 class="board-title">게시글 작성</h2>
+
+        <form id="boardWriteForm" enctype="multipart/form-data">
+            <!-- 카테고리 -->
+            <div class="form-group">
+                <label for="category">카테고리</label>
+                <select id="category" name="category" required>
+                    <option value="" selected disabled>카테고리 선택</option>
+                    <option value="notice">공지사항</option>
+                    <option value="general">일반</option>
+                    <option value="question">질문</option>
+                    <option value="event">이벤트</option>
+                </select>
+            </div>
+
+            <!-- 제목 -->
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" id="title" name="title" placeholder="제목을 입력해주세요" required>
+            </div>
+
+            <!-- 작성자 -->
+            <div class="form-group">
+                <label for="author">작성자</label>
+                <input type="text" id="author" name="author" placeholder="작성자명" required>
+            </div>
+
+            <!-- 내용 -->
+            <div class="form-group">
+                <label for="editor">내용</label>
+                <textarea id="editor" name="content"></textarea>
+            </div>
+
+            <!-- 이미지 업로드 -->
+            <div class="form-group">
+                <label for="imageUpload">이미지 업로드</label>
+                <div class="upload-container">
+                    <input type="file" id="imageUpload" name="imageUpload" accept="image/*">
+                    <p class="upload-guide">* JPG, PNG, GIF 파일만 업로드 가능 (최대 5MB)</p>
+                </div>
+            </div>
+
+            <!-- 파일 업로드 -->
+            <div class="form-group">
+                <label for="fileUpload">파일 업로드</label>
+                <div class="upload-container">
+                    <input type="file" id="fileUpload" name="fileUpload" multiple>
+                    <p class="upload-guide">* 여러 파일 선택 가능 (최대 20MB)</p>
+                </div>
+                <div class="selected-files" id="selectedFiles"></div>
+            </div>
+
+            <!-- 비밀글 옵션 -->
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="isPrivate" name="isPrivate">
+                <label for="isPrivate" class="checkbox-label">비밀글</label>
+                <div id="passwordBox" class="password-box hidden">
+                    <input type="password" id="password" name="password" placeholder="비밀번호">
+                </div>
+            </div>
+
+            <!-- 버튼 영역 -->
+            <div class="button-group">
+                <button type="button" id="cancelBtn" class="btn btn-cancel">취소</button>
+                <button type="submit" id="submitBtn" class="btn btn-submit">작성</button>
+                <button type="button" id="listBtn" class="btn btn-list">목록</button>
+            </div>
+        </form>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script th:src="@{/static/common/js/write.js}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // TinyMCE 에디터 초기화
+            tinymce.init({
+                selector: '#editor',
+                height: 400,
+                menubar: false,
+                plugins: [
+                    'advlist autolink lists link image charmap print preview anchor',
+                    'searchreplace visualblocks code fullscreen',
+                    'insertdatetime media table paste code help wordcount'
+                ],
+                toolbar: 'undo redo | formatselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | removeformat',
+                content_style: `
+                    body { 
+                        font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; 
+                        font-size: 14px; 
+                        line-height: 1.6; 
+                        padding: 10px; 
+                    }
+                `
+            });
+
+            // 비밀글 체크박스 이벤트
+            document.getElementById('isPrivate').addEventListener('change', function() {
+                const passwordBox = document.getElementById('passwordBox');
+                if (this.checked) {
+                    passwordBox.classList.remove('hidden');
+                } else {
+                    passwordBox.classList.add('hidden');
+                    document.getElementById('password').value = '';
+                }
+            });
+
+            // 파일 업로드 이벤트
+            document.getElementById('fileUpload').addEventListener('change', function() {
+                const selectedFiles = document.getElementById('selectedFiles');
+                selectedFiles.innerHTML = '';
+                
+                if (this.files.length > 0) {
+                    for (let i = 0; i < this.files.length; i++) {
+                        const fileItem = document.createElement('div');
+                        fileItem.className = 'file-item';
+                        
+                        const fileName = document.createElement('span');
+                        fileName.className = 'file-name';
+                        fileName.textContent = this.files[i].name;
+                        
+                        fileItem.appendChild(fileName);
+                        selectedFiles.appendChild(fileItem);
+                    }
+                }
+            });
+
+            // 폼 제출 이벤트
+            document.getElementById('boardWriteForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 필수 필드 검증
+                const category = document.getElementById('category').value;
+                const title = document.getElementById('title').value.trim();
+                const author = document.getElementById('author').value.trim();
+                const content = tinymce.get('editor').getContent();
+                
+                if (!category) {
+                    alert('카테고리를 선택해주세요.');
+                    document.getElementById('category').focus();
+                    return;
+                }
+                
+                if (!title) {
+                    alert('제목을 입력해주세요.');
+                    document.getElementById('title').focus();
+                    return;
+                }
+                
+                if (!author) {
+                    alert('작성자를 입력해주세요.');
+                    document.getElementById('author').focus();
+                    return;
+                }
+                
+                if (!content || content === '<p><br data-mce-bogus="1"></p>') {
+                    alert('내용을 입력해주세요.');
+                    tinymce.get('editor').focus();
+                    return;
+                }
+                
+                const isPrivate = document.getElementById('isPrivate').checked;
+                if (isPrivate) {
+                    const password = document.getElementById('password').value.trim();
+                    if (!password) {
+                        alert('비밀글 비밀번호를 입력해주세요.');
+                        document.getElementById('password').focus();
+                        return;
+                    }
+                }
+                
+                // 테스트용 - 폼 데이터 확인
+                console.log('폼 데이터:', {
+                    category: category,
+                    title: title,
+                    author: author,
+                    content: content,
+                    isPrivate: isPrivate,
+                    password: isPrivate ? document.getElementById('password').value : ''
+                });
+                
+                alert('게시글이 등록되었습니다.');
+                // 실제 구현 시 아래 코드 활성화
+                // window.location.href = '/board/list';
+            });
+
+            // 취소 버튼 이벤트
+            document.getElementById('cancelBtn').addEventListener('click', function() {
+                if (confirm('작성 중인 내용이 모두 사라집니다. 취소하시겠습니까?')) {
+                    history.back();
+                }
+            });
+
+            // 목록 버튼 이벤트
+            document.getElementById('listBtn').addEventListener('click', function() {
+                if (confirm('작성 중인 내용이 저장되지 않습니다. 목록으로 이동하시겠습니까?')) {
+                    window.location.href = '/board/list';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

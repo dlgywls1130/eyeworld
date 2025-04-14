@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/market/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <!-- header -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <!-- Market Content -->
+        <div class="market-container">
+            <!-- Sidebar with filters -->
+            <aside class="sidebar">
+                <h2 class="page_title">아이월드마트</h2>
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search Music" id="searchInput">
+                    <button class="search-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
+                    <div class="search-results" id="searchResults">
+                        <!-- Search results will appear here -->
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="category-group">
+                        <h3>Clothing</h3>
+                        <ul>
+                            <li><a href="#">View All</a></li>
+                            <li><a href="#">Features</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="category-group">
+                        <h3>Brands</h3>
+                        <ul class="checkbox-list">
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="dress">
+                                    <span>Dress</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="bag">
+                                    <span>Bag</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="scarf">
+                                    <span>Scarf</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="shoe">
+                                    <span>Shoe</span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox" name="category" value="glasses">
+                                    <span>Glasses</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main content area -->
+            <main class="main-content">
+                <!-- 여기서 page_tab 클래스를 추가하고 기존 구조를 맞춤 -->
+                <div class="page_tab">
+                    <!-- 탭 네비게이션 - ul.tabs 클래스 사용 -->
+                    <ul class="tabs">
+                        <li data-tab="tab1">브랜드전체보기</li>
+                        <li data-tab="tab2">카테고리1</li>
+                        <li data-tab="tab3">카테고리2</li>
+                        <li data-tab="tab4">카테고리3</li>
+                        <li data-tab="tab5">카테고리4</li>
+                    </ul>
+
+                    <!-- 탭 콘텐츠 - tab-content 클래스 사용 -->
+                    <div id="tab1" class="tab-content">
+                        <div class="product-grid">
+                            <!-- Product 1 -->
+                            <div class="product-card" data-category="dress">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product1.png}" alt="Adicolor Classics Joggers">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Adicolor Classics Joggers</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Dress</span>
+                                        <span class="product-price">$63.85</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 2 -->
+                            <div class="product-card" data-category="bag">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product2.png}" alt="Nike Sportswear Futura Luxe">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Sportswear Futura Luxe</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Bag</span>
+                                        <span class="product-price">$130.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 3 -->
+                            <div class="product-card" data-category="scarf">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product3.png}" alt="Geometric Print Scarf">
+                                    <div class="product-badge">SALE</div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Geometric Print Scarf</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Scarf</span>
+                                        <span class="product-price">$53.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 4 -->
+                            <div class="product-card" data-category="dress">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product4.png}" alt="Yellow Reserved Hoodie">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Yellow Reserved Hoodie</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Dress</span>
+                                        <span class="product-price">
+                                            <span class="original-price">$364.00</span>
+                                            <span class="sale-price">$155.00</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 5 -->
+                            <div class="product-card" data-category="dress">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product5.png}" alt="Basic Dress Green">
+                                    <div class="product-badge hot">HOT</div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Basic Dress Green</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Dress</span>
+                                        <span class="product-price">$236.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Product 6 -->
+                            <div class="product-card" data-category="shoe">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product6.png}" alt="Nike Air Zoom Pegasus">
+                                    <div class="product-badge">SALE</div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Air Zoom Pegasus</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Shoe</span>
+                                        <span class="product-price">
+                                            <span class="original-price">$220.00</span>
+                                            <span class="sale-price">$198.00</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Additional products -->
+                            <div class="product-card" data-category="dress">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product7.png}" alt="Nike Repel Miler">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Repel Miler</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Dress</span>
+                                        <span class="product-price">$120.50</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="glasses">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product8.png}" alt="Nike Sportswear Futura Luxe Glasses">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Sportswear Futura Luxe</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Glasses</span>
+                                        <span class="product-price">$160.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="glasses">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product1.png}" alt="Nike Sportswear Futura Luxe Glasses">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Sportswear Futura Luxe</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Glasses</span>
+                                        <span class="product-price">$160.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="glasses">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product2.png}" alt="Nike Sportswear Futura Luxe Glasses">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Sportswear Futura Luxe</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Glasses</span>
+                                        <span class="product-price">$160.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab2" class="tab-content">
+                        <div class="product-grid">
+                            <!-- 카테고리1 상품들 -->
+                            <div class="product-card" data-category="dress">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product1.png}" alt="Adicolor Classics Joggers">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Adicolor Classics Joggers</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Dress</span>
+                                        <span class="product-price">$63.85</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="bag">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product2.png}" alt="Nike Sportswear Futura Luxe">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Sportswear Futura Luxe</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Bag</span>
+                                        <span class="product-price">$130.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="scarf">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product3.png}" alt="Geometric Print Scarf">
+                                    <div class="product-badge">SALE</div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Geometric Print Scarf</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Scarf</span>
+                                        <span class="product-price">$53.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="dress">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product4.png}" alt="Yellow Reserved Hoodie">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Yellow Reserved Hoodie</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Dress</span>
+                                        <span class="product-price">
+                                            <span class="original-price">$364.00</span>
+                                            <span class="sale-price">$155.00</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab3" class="tab-content">
+                        <div class="product-grid">
+                            <!-- 카테고리2 상품들 -->
+                            <div class="product-card" data-category="dress">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product5.png}" alt="Basic Dress Green">
+                                    <div class="product-badge hot">HOT</div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Basic Dress Green</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Dress</span>
+                                        <span class="product-price">$236.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="shoe">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product6.png}" alt="Nike Air Zoom Pegasus">
+                                    <div class="product-badge">SALE</div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Air Zoom Pegasus</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Shoe</span>
+                                        <span class="product-price">
+                                            <span class="original-price">$220.00</span>
+                                            <span class="sale-price">$198.00</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="dress">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product7.png}" alt="Nike Repel Miler">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Repel Miler</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Dress</span>
+                                        <span class="product-price">$120.50</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab4" class="tab-content">
+                        <div class="product-grid">
+                            <!-- 카테고리3 상품들 -->
+                            <div class="product-card" data-category="glasses">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product8.png}" alt="Nike Sportswear Futura Luxe Glasses">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Sportswear Futura Luxe</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Glasses</span>
+                                        <span class="product-price">$160.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="glasses">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product1.png}" alt="Nike Sportswear Futura Luxe Glasses">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Sportswear Futura Luxe</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Glasses</span>
+                                        <span class="product-price">$160.00</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="glasses">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product2.png}" alt="Nike Sportswear Futura Luxe Glasses">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Nike Sportswear Futura Luxe</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Glasses</span>
+                                        <span class="product-price">$160.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab5" class="tab-content">
+                        <div class="product-grid">
+                            <!-- 카테고리4 상품들 -->
+                            <div class="product-card" data-category="dress">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product1.png}" alt="Adicolor Classics Joggers">
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Adicolor Classics Joggers</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Dress</span>
+                                        <span class="product-price">$63.85</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="product-card" data-category="scarf">
+                                <div class="product-image">
+                                    <img th:src="@{/static/common/assets/images/product3.png}" alt="Geometric Print Scarf">
+                                    <div class="product-badge">SALE</div>
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">Geometric Print Scarf</h3>
+                                    <div class="product-meta">
+                                        <span class="product-category">Scarf</span>
+                                        <span class="product-price">$53.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+
+
+    <script th:src="@{/static/app/market/js/index.js}"></script>
+</body>
+
+</html>
