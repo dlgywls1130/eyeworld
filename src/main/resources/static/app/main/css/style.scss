@@ -628,55 +628,7 @@ footer {
   font-size: 16px;
 }
 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 8rem;
-}
 
-.footer-section {
-  flex: 1;
-
-  h3 {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    color: #fff;
-  }
-
-  ul {
-    list-style: none;
-
-    li {
-      margin-bottom: 1rem;
-
-      a {
-        color: #999;
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: color 0.2s;
-
-        &:hover {
-          color: #fff;
-        }
-      }
-    }
-  }
-}
-
-.social-links {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-
-  a {
-    color: #999;
-    text-decoration: none;
-
-    &:hover {
-      color: #fff;
-    }
-  }
-}
 
 /* 날씨 위젯 */
 

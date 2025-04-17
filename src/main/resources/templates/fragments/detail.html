@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/common/css/layouts/detail.css}">
+        
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </th:block>
+    <div id="google_translate_element"></div>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="board-write-container">
+
+        <div class="post__detail">
+            <main class="post-detail">
+                <!-- 게시글 헤더 -->
+                <div class="post-header">
+                    <h2 class="post-title">Received a lot of questions about breaking into the tech industry lately.</h2>
+                    <div class="post-info">
+                        <div class="author-info">
+                            <div class="author-avatar">
+                                <img src="../../static/common/assets/images/img_people_01.png" alt="Robert Fox">
+                            </div>
+                            <div class="author-details">
+                                <span class="author-name">Robert Fox</span>
+                                <span class="post-date">3 days ago</span>
+                            </div>
+                        </div>
+                        <div class="post-stats">
+                            <span class="view-count"><i class="fas fa-eye"></i> 조회수 245</span>
+                            <span class="comment-count"><i class="fas fa-comment"></i> 댓글 28</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- 게시글 본문 내용 -->
+                <div class="post-content">
+                    <p>Received a lot of questions about breaking into the tech industry lately. If you're starting out or looking to switch careers, feel free to connect with me. I'm here to help and share insights! 🚀</p>
+                    
+                    <!-- 첨부 이미지가 있을 경우 표시 -->
+                    <div class="post-images">
+                        <img src="../../static/common/assets/images/product2.png" alt="Tech career guidance">
+                    </div>
+    
+                    <!-- 태그 영역 -->
+                    <div class="post-tags">
+                        <a href="#" class="tag">#techcareer</a>
+                        <a href="#" class="tag">#careeradvice</a>
+                        <a href="#" class="tag">#programming</a>
+                    </div>
+                </div>
+    
+                <!-- 게시글 하단 상호작용 영역 -->
+                <div class="post-engagement">
+                    <div class="engagement-stats">
+                        <div class="stat likes">
+                            <i class="far fa-heart"></i>
+                            <span>142</span>
+                        </div>
+                        <div class="stat comments">
+                            <i class="far fa-comment"></i>
+                            <span>28</span>
+                        </div>
+                        <!-- <div class="stat bookmarks">
+                            <i class="far fa-bookmark"></i>
+                            <span>37</span>
+                        </div> -->
+                    </div>
+                    <div class="engagement-buttons">
+                        <button class="like-button">
+                            <i class="far fa-heart"></i> 좋아요
+                        </button>
+                        <button class="comment-button">
+                            <i class="far fa-comment"></i> 댓글
+                        </button>
+                        <!-- <button class="bookmark-button">
+                            <i class="far fa-bookmark"></i> 저장
+                        </button> -->
+                    </div>
+                </div>
+    
+                <!-- 댓글 영역 -->
+                <div class="comments-section">
+                    <h3 class="comments-title">댓글 (28)</h3>
+                    
+                    <!-- 댓글 작성 폼 -->
+                    <div class="comment-form">
+                        <textarea class="comment-textarea" placeholder="댓글을 입력하세요..."></textarea>
+                        <button class="submit-comment">
+                            댓글 등록
+                        </button>
+                    </div>
+    
+                    <!-- 댓글 목록 -->
+                    <div class="comments-list">
+                        <!-- 댓글 1 -->
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="https://via.placeholder.com/32" alt="Jane Cooper">
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="commenter-name">Jane Cooper</span>
+                                    <span class="comment-date">2 days ago</span>
+                                </div>
+                                <p class="comment-text">Thanks for offering to help! I'm thinking about transitioning from marketing to UX design. Any tips?</p>
+                            </div>
+                        </div>
+    
+                        <!-- 댓글 2 -->
+                        <div class="comment">
+                            <div class="comment-avatar">
+                                <img src="https://via.placeholder.com/32" alt="Cameron Williamson">
+                            </div>
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="commenter-name">Cameron Williamson</span>
+                                    <span class="comment-date">1 day ago</span>
+                                </div>
+                                <p class="comment-text">What programming languages would you recommend for someone completely new to coding but wanting to get into web development?</p>
+                            </div>
+                        </div>
+    
+                        <!-- 더 많은 댓글 버튼 -->
+                        <button class="load-more-comments">
+                            더 많은 댓글 보기
+                        </button>
+                    </div>
+                </div>
+            </main>
+    
+            <!-- 게시글 액션 버튼 -->
+            <div class="post-action-buttons">
+                <a href="#" class="list-btn">목록</a>
+                <div class="post-edit-actions">
+                    <a href="#" class="edit-btn">수정</a>
+                    <a href="#" class="delete-btn">삭제</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+</body>
+
+</html>

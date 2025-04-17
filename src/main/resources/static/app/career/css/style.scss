@@ -1,0 +1,42 @@
+.privacy-policy{
+    max-width: 760px;
+    // text-align: center;
+    margin: 100px auto;
+    line-height: 1.5;
+    span{
+        text-align: center;
+        display: block;
+    }
+    .title__span{
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .detail__sub{
+        text-align: left;
+    }
+}
+
+@media screen and (max-width:768px){
+    .privacy-policy{
+        max-width: 100%;
+        padding: 0 20px;
+        // text-align: center;
+        margin: 50px auto;
+        line-height: 1.5;
+        span{
+            text-align: center;
+            display: none;
+        }
+        .title__span{
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    
+        .detail__sub{
+            text-align: left;
+        }
+    }
+}

@@ -143,9 +143,70 @@ public class MainController {
         return "app/stress/index";
     }
 
+    @GetMapping("/detail")
+    public String detail() {
+        return "fragments/detail";
+    }
+
     @GetMapping("/write")
     public String write() {
         return "fragments/write";
+    }
+
+    @GetMapping("/privacy-policy")
+    public String privacypolicy() {
+        return "app/etc/privacy-policy";
+    }
+
+    @GetMapping("/documents")
+    public String documents() {
+        return "app/etc/documents";
+    }
+
+    @GetMapping("/supports")
+    public String supports() {
+        return "app/etc/supports";
+    }
+
+    @GetMapping("/faq")
+    public String faq() {
+        return "app/etc/faq";
+    }
+
+    @GetMapping("/blog")
+    public String blog() {
+        return "app/etc/blog";
+    }
+
+    @GetMapping("/condition")
+    public String condition() {
+        return "app/etc/condition";
+    }
+
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "app/etc/contact";
+    }
+
+    @GetMapping("/career")
+    public String career() {
+        return "app/career/index";
+    }
+
+    @GetMapping("/career-detail")
+    public String careerdetail() {
+        return "app/career/career-detail";
+    }
+
+    @GetMapping("/partner")
+    public String partner() {
+        return "app/partner/index";
+    }
+
+    @GetMapping("/about")
+    public String about() {
+        return "app/about/index";
     }
 
     // 디버깅용 추가 메서드

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/etc/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="faq">
+            <h1>FAQ</h1>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <h3 class="title">
+                        <span>질문1</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </h3>
+                    <p class="paragraph">
+                        lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc.
+                    </p>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="title">
+                        <span>질문1</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </h3>
+                    <p class="paragraph">
+                        lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc.
+                    </p>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="title">
+                        <span>질문1</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </h3>
+                    <p class="paragraph">
+                        lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc.
+                    </p>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="title">
+                        <span>질문1</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </h3>
+                    <p class="paragraph">
+                        lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc.
+                    </p>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="title">
+                        <span>질문1</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </h3>
+                    <p class="paragraph">
+                        lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc.
+                    </p>
+                </div>
+                <div class="accordion-item">
+                    <h3 class="title">
+                        <span>질문1</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </h3>
+                    <p class="paragraph">
+                        lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc. Donec euismod, nisl eget consectetur sagittis, nisl nunc egestas nunc, vitae aliquam nunc nisl eget nunc.
+                    </p>
+                </div>
+                
+            </div>
+        
+        </div>
+
+        
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+
+    <script th:src="@{/static/app/etc/js/index.js}"></script>
+</body>
+</html>

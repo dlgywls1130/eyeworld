@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuLinks = {
         '광고공간': '/advertisement',
         '건강': '/health',
-        '고등부': '/highschool', 
+        // '고등부': '/highschool', 
         '고튜브': '/movie',
         '긍정을생각하다': '#',
         '논문보기': '#',
