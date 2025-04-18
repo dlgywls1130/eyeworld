@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/common/css/write.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </th:block>
+    <div id="google_translate_element"></div>
+    <div th:replace="fragments/header :: header"></div>
+    <div class="board-write-container">
+        <div class="upload-container">
+            <h1 class="page-title">세부정보</h1>
+
+            <div class="upload-form">
+                <!-- 동영상 업로드 섹션 (추가됨) -->
+                <div class="form-section file-upload-section">
+                    <div class="section-header">
+                        <span class="section-title">동영상 업로드</span>
+                        <span class="info-icon">?</span>
+                    </div>
+                    <div class="upload-area">
+                        <label for="video-upload" class="upload-label">
+                            <span class="upload-icon-large"></span>
+                            <span>파일을 끌어서 놓거나 클릭하여 업로드</span>
+                            <input type="file" id="video-upload" class="file-upload-input" accept="video/*" style="display: none;">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 카테고리 선택 섹션 (추가됨) -->
+                <div class="form-section category-section">
+                    <div class="section-header">
+                        <span class="section-title">카테고리</span>
+                    </div>
+                    <div class="select-container">
+                        <select class="category-select" id="video-category">
+                            <option value="" selected disabled>카테고리 선택</option>
+                            <option value="entertainment">엔터테인먼트</option>
+                            <option value="music">음악</option>
+                            <option value="education">교육</option>
+                            <option value="sports">스포츠</option>
+                            <option value="gaming">게임</option>
+                            <option value="vlogs">브이로그</option>
+                            <option value="news">뉴스</option>
+                            <option value="tech">기술</option>
+                            <option value="comedy">코미디</option>
+                            <option value="travel">여행</option>
+                            <option value="food">음식</option>
+                            <option value="lifestyle">라이프스타일</option>
+                            <option value="fashion">패션 및 뷰티</option>
+                            <option value="pets">애완동물</option>
+                            <option value="science">과학 및 교육</option>
+                            <option value="diy">DIY 및 공예</option>
+                            <option value="other">기타</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 파일 업로드 섹션 -->
+                <div class="form-section file-section">
+                    <div class="section-header">
+                        <span class="section-title">제목(필수 항목)</span>
+                    </div>
+                    <div class="input-container">
+                        <input type="text" placeholder="제목입력" class="file-input">
+                        <span class="char-count">46/100</span>
+                    </div>
+                </div>
+
+                <!-- 설명 섹션 -->
+                <div class="form-section description-section">
+                    <div class="section-header">
+                        <span class="section-title">설명</span>
+                    </div>
+                    <textarea placeholder="시청자에게 동영상에 대해 설명해 주세요(채널을 맨션하려면 @ 입력)" class="description-input"></textarea>
+                </div>
+
+                <!-- 썸네일 섹션 -->
+                <div class="form-section thumbnail-section">
+                    <h2 class="section-subtitle">썸네일</h2>
+                    <p class="section-description">눈에 띄고 시청자의 관심을 끄는 썸네일을 설정하세요.</p>
+
+                    <div class="thumbnail-options">
+                        <div class="thumbnail-option">
+                            <label for="thumbnail-upload" class="thumbnail-box">
+                                <span class="icon file-icon"></span>
+                                <span class="option-name">파일 업로드</span>
+                                <input type="file" id="thumbnail-upload" accept="image/*" style="display: none;">
+                            </label>
+                        </div>
+                        <div class="thumbnail-option">
+                            <div class="thumbnail-box">
+                                <span class="icon auto-icon"></span>
+                                <span class="option-name">자동 생성됨</span>
+                            </div>
+                        </div>
+                        <div class="thumbnail-option">
+                            <div class="thumbnail-box">
+                                <span class="icon compare-icon"></span>
+                                <span class="option-name">텍스트와 비교</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 동영상 링크 표시 섹션 -->
+                <div class="form-section video-preview">
+                    <h2 class="preview-title">곧 처리 시작됨</h2>
+
+                    <div class="video-link-container">
+                        <div class="link-label">동영상 링크</div>
+                        <div class="link-box">
+                            <a href="https://youtu.be/VuVN26B8HLY" class="video-link" id="video-link">https://youtu.be/VuVN26B8HLY</a>
+                            <button class="copy-button" id="copy-link-btn"></button>
+                        </div>
+                    </div>
+
+                    <!-- <div class="file-info">
+                        <div class="file-name">file name</div>
+                    </div> -->
+                </div>
+
+                <!-- 공개 여부 설정 (체크박스 추가) -->
+                <div class="form-section visibility-section">
+                    <h2 class="section-subtitle">공개 상태</h2>
+                    <div class="visibility-option">
+                        <input type="checkbox" id="public-video" class="visibility-checkbox">
+                        <label for="public-video">공개</label>
+                    </div>
+                    <div class="visibility-option">
+                        <input type="checkbox" id="private-video" class="visibility-checkbox">
+                        <label for="private-video">비공개</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 하단 버튼 부분 -->
+            <div class="button-container">
+                <button class="action-button save-button">취소</button>
+                <button class="icon-button">
+                    <span class="upload-icon"></span>
+                </button>
+                <!-- <button class="action-button next-button">다음</button> -->
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+    <script th:src="@{/static/common/js/write.js}"></script>
+
+    <!-- 자바스크립트 추가 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 동영상 링크 복사 기능
+            const copyLinkBtn = document.getElementById('copy-link-btn');
+            const videoLink = document.getElementById('video-link');
+
+            copyLinkBtn.addEventListener('click', function() {
+                navigator.clipboard.writeText(videoLink.href)
+                    .then(() => {
+                        // 복사 성공 알림 표시
+                        const notification = document.createElement('div');
+                        notification.classList.add('copy-notification');
+                        notification.textContent = '링크가 복사되었습니다.';
+                        document.body.appendChild(notification);
+
+                        // 2초 후 알림 제거
+                        setTimeout(() => {
+                            notification.remove();
+                        }, 2000);
+                    })
+                    .catch(err => {
+                        console.error('링크 복사 실패:', err);
+                    });
+            });
+
+            // 파일 업로드 처리
+            const videoUploadInput = document.getElementById('video-upload');
+            const thumbnailUploadInput = document.getElementById('thumbnail-upload');
+            
+            // 동영상 파일 업로드 처리
+            videoUploadInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const fileName = this.files[0].name;
+                    // 여기에 실제 업로드 로직 추가 (필요시 AJAX 요청 등)
+                    const uploadArea = this.closest('.upload-area');
+                    const fileNameDisplay = document.createElement('div');
+                    fileNameDisplay.classList.add('uploaded-file-name');
+                    fileNameDisplay.textContent = fileName;
+                    
+                    // 기존에 표시된 파일명이 있으면 제거
+                    const existingFileName = uploadArea.querySelector('.uploaded-file-name');
+                    if (existingFileName) {
+                        existingFileName.remove();
+                    }
+                    
+                    uploadArea.appendChild(fileNameDisplay);
+                }
+            });
+            
+            // 썸네일 파일 업로드 처리
+            thumbnailUploadInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const fileName = this.files[0].name;
+                    // 여기에 실제 썸네일 업로드 로직 추가
+                    const thumbnailBox = this.closest('.thumbnail-box');
+                    thumbnailBox.classList.add('thumbnail-uploaded');
+                    
+                    // 이미지 미리보기
+                    const file = this.files[0];
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        // 기존 아이콘 숨기기
+                        const icon = thumbnailBox.querySelector('.icon');
+                        if (icon) icon.style.display = 'none';
+                        
+                        // 미리보기 이미지 추가
+                        let preview = thumbnailBox.querySelector('.thumbnail-preview');
+                        if (!preview) {
+                            preview = document.createElement('div');
+                            preview.classList.add('thumbnail-preview');
+                            thumbnailBox.insertBefore(preview, thumbnailBox.firstChild);
+                        }
+                        
+                        preview.style.backgroundImage = `url(${e.target.result})`;
+                    }
+                    
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            // 체크박스 상호 배타성 처리
+            const publicCheckbox = document.getElementById('public-video');
+            const privateCheckbox = document.getElementById('private-video');
+            
+            if (publicCheckbox && privateCheckbox) {
+                publicCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        privateCheckbox.checked = false;
+                    }
+                });
+                
+                privateCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        publicCheckbox.checked = false;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -56,6 +56,11 @@ public class MainController {
         return "app/health/index";
     }
 
+    @GetMapping("/video")
+    public String video() {
+        return "app/health/video";
+    }
+
     @GetMapping("/personality")
     public String personality() {
         return "app/personality/index";
@@ -95,6 +100,11 @@ public class MainController {
     @GetMapping("/exchange")
     public String exchange() {
         return "app/exchange/index";
+    }
+
+    @GetMapping("/product_write")
+    public String productWrite() {
+        return "app/exchange/product_write";
     }
 
     @GetMapping("/market")
@@ -151,6 +161,11 @@ public class MainController {
     @GetMapping("/write")
     public String write() {
         return "fragments/write";
+    }
+
+    @GetMapping("/video_write")
+    public String videoWrite() {
+        return "fragments/video_write";
     }
 
     @GetMapping("/privacy-policy")

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/common/css/write.css}">
+        
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        
+    </th:block>
+    <div id="google_translate_element"></div>
+    <div th:replace="fragments/header :: header"></div>
+
+    <div class="product_write">
+        
+        <form class="product-form">
+            <div class="form-section">
+                <h2 class="section-title">기본 정보</h2>
+                
+                <div class="form-group">
+                    <label for="category">카테고리 선택</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected>카테고리를 선택하세요</option>
+                        <option value="category1">카테고리1</option>
+                        <option value="category2">카테고리2</option>
+                        <option value="category3">카테고리3</option>
+                        <option value="category4">카테고리4</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-name">상품명</label>
+                    <input type="text" id="product-name" name="product-name" placeholder="상품명을 입력하세요" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-price">상품가격</label>
+                    <div class="price-input">
+                        <input type="number" id="product-price" name="product-price" placeholder="가격을 입력하세요" required>
+                        <span class="currency">원</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2 class="section-title">상품 옵션</h2>
+                
+                <div class="form-group">
+                    <label for="product-options">상품 옵션</label>
+                    <input type="text" id="product-options" name="product-options" placeholder="옵션을 입력하세요 (예: 색상, 소재 등)">
+                </div>
+                
+                <div class="form-group">
+                    <label for="product-size">상품 사이즈</label>
+                    <select id="product-size" name="product-size">
+                        <option value="" disabled selected>사이즈를 선택하세요</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="free">Free</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2 class="section-title">상품 이미지</h2>
+                <p class="section-desc">이미지는 최대 10개까지 등록 가능합니다.</p>
+                
+                <div class="image-upload-container">
+                    <div class="image-upload-item">
+                        <div class="image-upload-box">
+                            <input type="file" id="image-upload-1" class="image-input" accept="image/*">
+                            <label for="image-upload-1" class="upload-label">
+                                <div class="upload-icon">+</div>
+                                <span class="upload-text">이미지 등록</span>
+                            </label>
+                            <div class="preview-container"></div>
+                        </div>
+                        <span class="image-caption">대표이미지</span>
+                    </div>
+                    
+                    <div class="image-upload-item">
+                        <div class="image-upload-box">
+                            <input type="file" id="image-upload-2" class="image-input" accept="image/*">
+                            <label for="image-upload-2" class="upload-label">
+                                <div class="upload-icon">+</div>
+                                <span class="upload-text">이미지 등록</span>
+                            </label>
+                            <div class="preview-container"></div>
+                        </div>
+                        <span class="image-caption">상세이미지 1</span>
+                    </div>
+                    
+                    <div class="image-upload-item">
+                        <div class="image-upload-box">
+                            <input type="file" id="image-upload-3" class="image-input" accept="image/*">
+                            <label for="image-upload-3" class="upload-label">
+                                <div class="upload-icon">+</div>
+                                <span class="upload-text">이미지 등록</span>
+                            </label>
+                            <div class="preview-container"></div>
+                        </div>
+                        <span class="image-caption">상세이미지 2</span>
+                    </div>
+                    
+                    <button type="button" class="add-image-btn">
+                        <span class="plus-icon">+</span>
+                        <span>이미지 추가</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2 class="section-title">상품 설명</h2>
+                
+                <div class="form-group">
+                    <label for="product-description">상품 상세설명</label>
+                    <textarea id="product-description" name="product-description" rows="8" placeholder="상품에 대한 상세 설명을 입력하세요"></textarea>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button type="submit" class="submit-btn">등록하기</button>
+                <button type="button" class="cancel-btn">취소</button>
+            </div>
+        </form>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script th:src="@{/static/common/js/write.js}"></script>
+
+    <script>
+          // 이미지 추가 버튼 기능
+          document.addEventListener('DOMContentLoaded', function() {
+            const addImageBtn = document.querySelector('.add-image-btn');
+            const imageContainer = document.querySelector('.image-upload-container');
+            let imageCount = 3; // 초기 이미지 업로드 박스가 3개
+            
+            addImageBtn.addEventListener('click', function() {
+                if(imageCount < 10) {
+                    imageCount++;
+                    
+                    const newImageItem = document.createElement('div');
+                    newImageItem.className = 'image-upload-item';
+                    
+                    newImageItem.innerHTML = `
+                        <div class="image-upload-box">
+                            <input type="file" id="image-upload-${imageCount}" class="image-input" accept="image/*">
+                            <label for="image-upload-${imageCount}" class="upload-label">
+                                <div class="upload-icon">+</div>
+                                <span class="upload-text">이미지 등록</span>
+                            </label>
+                            <div class="preview-container"></div>
+                        </div>
+                        <span class="image-caption">상세이미지 ${imageCount-1}</span>
+                    `;
+                    
+                    // 추가 버튼 앞에 새 이미지 업로드 항목 삽입
+                    imageContainer.insertBefore(newImageItem, addImageBtn);
+                    
+                    // 최대 개수에 도달하면 추가 버튼 숨김
+                    if(imageCount >= 10) {
+                        addImageBtn.style.display = 'none';
+                    }
+                }
+            });
+            
+            // 이미지 미리보기 기능
+            imageContainer.addEventListener('change', function(e) {
+                if(e.target.classList.contains('image-input')) {
+                    const file = e.target.files[0];
+                    if(file) {
+                        const previewContainer = e.target.parentElement.querySelector('.preview-container');
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(event) {
+                            previewContainer.innerHTML = `
+                                <div class="preview-wrapper">
+                                    <img src="${event.target.result}" class="preview-image">
+                                    <button type="button" class="remove-image-btn">×</button>
+                                </div>
+                            `;
+                            
+                            e.target.parentElement.querySelector('.upload-label').style.display = 'none';
+                        };
+                        
+                        reader.readAsDataURL(file);
+                    }
+                }
+            });
+            
+            // 이미지 삭제 기능
+            imageContainer.addEventListener('click', function(e) {
+                if(e.target.classList.contains('remove-image-btn')) {
+                    const previewWrapper = e.target.parentElement;
+                    const previewContainer = previewWrapper.parentElement;
+                    const uploadBox = previewContainer.parentElement;
+                    const fileInput = uploadBox.querySelector('.image-input');
+                    
+                    // 미리보기 제거
+                    previewContainer.innerHTML = '';
+                    
+                    // 파일 입력 초기화
+                    fileInput.value = '';
+                    
+                    // 업로드 라벨 다시 표시
+                    uploadBox.querySelector('.upload-label').style.display = 'flex';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

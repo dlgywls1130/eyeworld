@@ -233,3 +233,269 @@ function setupEventHandlers() {
         });
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 동영상 링크 복사 기능
+    const copyLinkBtn = document.getElementById('copy-link-btn');
+    const videoLink = document.getElementById('video-link');
+
+    if (copyLinkBtn && videoLink) {
+        copyLinkBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(videoLink.href)
+                .then(() => {
+                    // 복사 성공 알림 표시
+                    const notification = document.createElement('div');
+                    notification.classList.add('copy-notification');
+                    notification.textContent = '링크가 복사되었습니다.';
+                    document.body.appendChild(notification);
+
+                    // 2초 후 알림 제거
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 2000);
+                })
+                .catch(err => {
+                    console.error('링크 복사 실패:', err);
+                    alert('링크 복사에 실패했습니다. 다시 시도해주세요.');
+                });
+        });
+    }
+
+    // 파일 업로드 처리
+    const videoUploadInput = document.getElementById('video-upload');
+    const thumbnailUploadInput = document.getElementById('thumbnail-upload');
+    
+    // 동영상 파일 업로드 처리
+    if (videoUploadInput) {
+        const uploadArea = videoUploadInput.closest('.upload-area');
+        
+        // 드래그 앤 드롭 기능
+        if (uploadArea) {
+            // 드래그 이벤트 처리
+            uploadArea.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.add('dragover');
+            });
+            
+            uploadArea.addEventListener('dragleave', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.remove('dragover');
+            });
+            
+            uploadArea.addEventListener('drop', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.remove('dragover');
+                
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    videoUploadInput.files = e.dataTransfer.files;
+                    handleVideoFile(e.dataTransfer.files[0], uploadArea);
+                }
+            });
+        }
+        
+        // 파일 선택 처리
+        videoUploadInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                handleVideoFile(this.files[0], uploadArea);
+            }
+        });
+    }
+    
+    // 썸네일 파일 업로드 처리
+    if (thumbnailUploadInput) {
+        thumbnailUploadInput.addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const thumbnailBox = this.closest('.thumbnail-box');
+                handleThumbnailFile(this.files[0], thumbnailBox);
+            }
+        });
+    }
+    
+    // 체크박스 상호 배타성 처리
+    const publicCheckbox = document.getElementById('public-video');
+    const privateCheckbox = document.getElementById('private-video');
+    
+    if (publicCheckbox && privateCheckbox) {
+        publicCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                privateCheckbox.checked = false;
+            }
+        });
+        
+        privateCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                publicCheckbox.checked = false;
+            }
+        });
+    }
+});
+
+// 동영상 파일 처리 함수
+function handleVideoFile(file, uploadArea) {
+    // 파일 타입 검증
+    if (!file.type.startsWith('video/')) {
+        alert('동영상 파일만 업로드 가능합니다.');
+        return;
+    }
+    
+    // 파일 크기 제한 (예: 500MB)
+    const maxSize = 500 * 1024 * 1024; // 500MB
+    if (file.size > maxSize) {
+        alert('파일 크기는 500MB 이하여야 합니다.');
+        return;
+    }
+    
+    // 파일 정보 표시
+    const fileName = file.name;
+    const fileSize = formatFileSize(file.size);
+    
+    // 업로드 상태 표시
+    let statusDisplay = uploadArea.querySelector('.upload-status');
+    if (!statusDisplay) {
+        statusDisplay = document.createElement('div');
+        statusDisplay.classList.add('upload-status');
+        uploadArea.appendChild(statusDisplay);
+    }
+    
+    // 파일명 표시
+    let fileNameDisplay = uploadArea.querySelector('.uploaded-file-name');
+    if (!fileNameDisplay) {
+        fileNameDisplay = document.createElement('div');
+        fileNameDisplay.classList.add('uploaded-file-name');
+        uploadArea.appendChild(fileNameDisplay);
+    }
+    
+    fileNameDisplay.textContent = `${fileName} (${fileSize})`;
+    
+    // 업로드 상태 변경
+    statusDisplay.textContent = '업로드 준비 완료';
+    statusDisplay.classList.add('upload-ready');
+    
+    // 여기에 실제 업로드 로직 추가 (AJAX 요청 등)
+    // 이 예제에서는 실제 업로드는 구현하지 않고 UI만 업데이트
+    
+    // 업로드 영역 스타일 변경
+    uploadArea.classList.add('file-selected');
+    
+    // 업로드 아이콘 숨기기
+    const uploadIcon = uploadArea.querySelector('.upload-icon-large');
+    if (uploadIcon) {
+        uploadIcon.style.display = 'none';
+    }
+    
+    // 미리보기 생성 (동영상인 경우)
+    createVideoPreview(file, uploadArea);
+}
+
+// 썸네일 파일 처리 함수
+function handleThumbnailFile(file, thumbnailBox) {
+    // 이미지 파일 검증
+    if (!file.type.startsWith('image/')) {
+        alert('이미지 파일만 업로드 가능합니다.');
+        return;
+    }
+    
+    // 파일 크기 제한 (예: 5MB)
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    if (file.size > maxSize) {
+        alert('파일 크기는 5MB 이하여야 합니다.');
+        return;
+    }
+    
+    // 썸네일 박스 스타일 변경
+    thumbnailBox.classList.add('thumbnail-uploaded');
+    
+    // 기존 아이콘 숨기기
+    const icon = thumbnailBox.querySelector('.icon');
+    if (icon) {
+        icon.style.display = 'none';
+    }
+    
+    // 텍스트 숨기기
+    const text = thumbnailBox.querySelector('.option-name');
+    if (text) {
+        text.style.display = 'none';
+    }
+    
+    // 이미지 미리보기 생성
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        // 미리보기 이미지 추가
+        let preview = thumbnailBox.querySelector('.thumbnail-preview');
+        if (!preview) {
+            preview = document.createElement('div');
+            preview.classList.add('thumbnail-preview');
+            thumbnailBox.insertBefore(preview, thumbnailBox.firstChild);
+        }
+        
+        preview.style.backgroundImage = `url(${e.target.result})`;
+    };
+    
+    reader.readAsDataURL(file);
+    
+    // 여기에 실제 썸네일 업로드 로직 추가 (AJAX 요청 등)
+}
+
+// 동영상 미리보기 생성 함수
+function createVideoPreview(file, container) {
+    // 기존 미리보기 제거
+    const existingPreview = container.querySelector('.video-preview-container');
+    if (existingPreview) {
+        existingPreview.remove();
+    }
+    
+    // 미리보기 컨테이너 생성
+    const previewContainer = document.createElement('div');
+    previewContainer.classList.add('video-preview-container');
+    
+    // 비디오 요소 생성
+    const video = document.createElement('video');
+    video.classList.add('video-preview');
+    video.controls = true;
+    video.style.width = '100%';
+    video.style.maxHeight = '200px';
+    
+    // 비디오 소스 설정
+    const videoURL = URL.createObjectURL(file);
+    video.src = videoURL;
+    
+    // 비디오 로드 이벤트
+    video.addEventListener('loadedmetadata', function() {
+        // 비디오 정보 표시 (필요한 경우)
+        const duration = formatDuration(video.duration);
+        let infoDisplay = container.querySelector('.video-info');
+        if (!infoDisplay) {
+            infoDisplay = document.createElement('div');
+            infoDisplay.classList.add('video-info');
+            previewContainer.appendChild(infoDisplay);
+        }
+        
+        infoDisplay.textContent = `재생 시간: ${duration}`;
+    });
+    
+    // 컨테이너에 추가
+    previewContainer.appendChild(video);
+    container.appendChild(previewContainer);
+}
+
+// 파일 크기 포맷 함수
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+// 재생 시간 포맷 함수
+function formatDuration(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+}
