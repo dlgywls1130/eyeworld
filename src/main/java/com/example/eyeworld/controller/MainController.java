@@ -58,7 +58,12 @@ public class MainController {
 
     @GetMapping("/video")
     public String video() {
-        return "app/health/video";
+        return "fragments/video";
+    }
+
+    @GetMapping("/product_detail")
+    public String productDetail() {
+        return "fragments/product_detail";
     }
 
     @GetMapping("/personality")

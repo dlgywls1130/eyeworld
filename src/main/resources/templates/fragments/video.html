@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+
+<head th:replace="~{fragments/head :: head('Eyeworld')}">
+</head>
+
+<body>
+    <th:block th:fragment="links">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/app/main/css/style.css}">
+        <link rel="stylesheet" type="text/css" th:href="@{/static/common/css/layouts/detail.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        <!-- FontAwesome 추가 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </th:block>
+    <div id="google_translate_element"></div>
+
+    <div id="app">
+        <!-- header -->
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="vido_container">
+            <div class="main-content">
+                <div class="video-container">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MCIgaGVpZ2h0PSI3MjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEyODAiIGhlaWdodD0iNzIwIiBmaWxsPSIjZWVlIi8+PHRleHQgeD0iNjQwIiB5PSIzNjAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIzMiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgYWxpZ25tZW50LWJhc2VsaW5lPSJtaWRkbGUiPjEyODB4NzIwPC90ZXh0Pjwvc3ZnPg==" alt="Video Thumbnail">
+                </div>
+                <div class="video-info">
+                    <h1 class="video-title">[나플리 : Playlist🎧] 마음에 휴식이 필요한 시간 🌿 | JTBC 210203 방송 외</h1>
+                    <div class="video-meta">
+                        <div class="channel-info">
+                            <div class="channel-avatar">
+                                <img th:src="@{/static/common/assets/images/img_people_01.png}" alt="Channel Avatar">
+                            </div>
+                            <div>
+                                <div class="channel-name">Beginagain 비긴어게인</div>
+                                <div class="subscriber-count">구독자 1890만명</div>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="action-button">
+                                <span class="fa-solid fa-thumbs-up"></span>
+                                <span>91</span>
+                            </button>
+                            <button class="action-button">
+                                <span class="fa-solid fa-share"></span>
+                                <span>공유</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="video-stats">
+                        <div class="view-count">조회수 123만회 • 3일 전</div>
+                        <div class="video-description">
+                            마음에 휴식이 필요한 시간, 비긴어게인의 아름다운 음악과 함께하세요. 
+                            JTBC 210203 방송 및 다양한 공연 영상을 모았습니다.
+                            #비긴어게인 #나플리 #힐링음악
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="comments-section">
+                    <div class="comments-header">
+                        <div class="comment-count">댓글 248개</div>
+                        <div class="comment-sort">
+                            <span class="fa-solid fa-sort"></span>
+                            <span>정렬 기준</span>
+                        </div>
+                    </div>
+    
+                    <div class="comment-form">
+                        <div class="user-avatar"></div>
+                        <div class="comment-input-container">
+                            <input type="text" class="comment-input" placeholder="댓글 추가...">
+                            <div class="comment-buttons">
+                                <button class="comment-button">취소</button>
+                                <button class="comment-button primary">댓글</button>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="comment-list">
+                        <div class="comment">
+                            <div class="user-avatar"></div>
+                            <div class="comment-content">
+                                <div class="commenter-name">
+                                    <span>사용자이름</span>
+                                    <span class="comment-date">3일 전</span>
+                                </div>
+                                <div class="comment-text">
+                                    정말 좋은 음악이네요. 마음이 편안해지는 것 같아요. 비긴어게인은 항상 좋은 음악을 선사해주셔서 감사합니다.
+                                </div>
+                                <div class="comment-actions">
+                                    <div class="comment-action">
+                                        <span class="fa-solid fa-thumbs-up"></span>
+                                        <span>24</span>
+                                    </div>
+                                    <div class="comment-action">
+                                        <span class="fa-solid fa-thumbs-down"></span>
+                                    </div>
+                                    <div class="comment-action">
+                                        <span>답글</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="user-avatar"></div>
+                            <div class="comment-content">
+                                <div class="commenter-name">
+                                    <span>음악애호가</span>
+                                    <span class="comment-date">2일 전</span>
+                                </div>
+                                <div class="comment-text">
+                                    힐링되는 음악들이 정말 좋네요. 퇴근 후에 듣기 좋은 플레이리스트입니다. 비긴어게인 음악은 항상 최고에요!
+                                </div>
+                                <div class="comment-actions">
+                                    <div class="comment-action">
+                                        <span class="fa-solid fa-thumbs-up"></span>
+                                        <span>16</span>
+                                    </div>
+                                    <div class="comment-action">
+                                        <span class="fa-solid fa-thumbs-down"></span>
+                                    </div>
+                                    <div class="comment-action">
+                                        <span>답글</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="sidebar">
+                <div class="recommendations">
+                    <div class="recommendation">
+                        <div class="recommendation-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY4IiBoZWlnaHQ9Ijk0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNjgiIGhlaWdodD0iOTQiIGZpbGw9IiNlZWUiLz48dGV4dCB4PSI4NCIgeT0iNDciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+MTY4IHggOTQ8L3RleHQ+PC9zdmc+" alt="Video Thumbnail">
+                        </div>
+                        <div class="recommendation-info">
+                            <div class="recommendation-title">[나플리 : Playlist🎧] 나에게다, 그 사랑하는 사람 | JTBC 200604</div>
+                            <div class="recommendation-channel">Beginagain 비긴어게인</div>
+                            <div class="recommendation-meta">
+                                <span>조회수 246만회</span>
+                                <span>2년 전</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <div class="recommendation-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY4IiBoZWlnaHQ9Ijk0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNjgiIGhlaWdodD0iOTQiIGZpbGw9IiNlZWUiLz48dGV4dCB4PSI4NCIgeT0iNDciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+MTY4IHggOTQ8L3RleHQ+PC9zdmc+" alt="Video Thumbnail">
+                        </div>
+                        <div class="recommendation-info">
+                            <div class="recommendation-title">[나플리 : Playlist🎧] 맑은빛과 별, 나는 조아해요 ✨ | JTBC 210916</div>
+                            <div class="recommendation-channel">Beginagain 비긴어게인</div>
+                            <div class="recommendation-meta">
+                                <span>조회수 152만회</span>
+                                <span>10개월 전</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <div class="recommendation-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY4IiBoZWlnaHQ9Ijk0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNjgiIGhlaWdodD0iOTQiIGZpbGw9IiNlZWUiLz48dGV4dCB4PSI4NCIgeT0iNDciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+MTY4IHggOTQ8L3RleHQ+PC9zdmc+" alt="Video Thumbnail">
+                        </div>
+                        <div class="recommendation-info">
+                            <div class="recommendation-title">여름 댄스 음악으로 여행을 떠나요 | 90-2000 년대 노래 모음</div>
+                            <div class="recommendation-channel">Korean Ballad Mix</div>
+                            <div class="recommendation-meta">
+                                <span>조회수 288만회</span>
+                                <span>2년 전</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <div class="recommendation-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY4IiBoZWlnaHQ9Ijk0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNjgiIGhlaWdodD0iOTQiIGZpbGw9IiNlZWUiLz48dGV4dCB4PSI4NCIgeT0iNDciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+MTY4IHggOTQ8L3RleHQ+PC9zdmc+" alt="Video Thumbnail">
+                        </div>
+                        <div class="recommendation-info">
+                            <div class="recommendation-title">"엄중진은 카리스마.." "재밌죠?" | 나의 선의의 외길인생</div>
+                            <div class="recommendation-channel">체험삼십오</div>
+                            <div class="recommendation-meta">
+                                <span>조회수 242만회</span>
+                                <span>5년전 전</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recommendation">
+                        <div class="recommendation-thumbnail">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTY4IiBoZWlnaHQ9Ijk0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxNjgiIGhlaWdodD0iOTQiIGZpbGw9IiNlZWUiLz48dGV4dCB4PSI4NCIgeT0iNDciIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iI2FhYSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+MTY4IHggOTQ8L3RleHQ+PC9zdmc+" alt="Video Thumbnail">
+                        </div>
+                        <div class="recommendation-info">
+                            <div class="recommendation-title">[북한뉴스] 평양판 고려하는 김정은! 대체 안에 뭐가 들어있게 보너니...</div>
+                            <div class="recommendation-channel">채널A WORLD</div>
+                            <div class="recommendation-meta">
+                                <span>조회수 57만회</span>
+                                <span>23시간 전</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+    <script th:src="@{/static/app/health/js/index.js}"></script>
+</body>
+
+</html>
